@@ -37,9 +37,12 @@ private:
 	string clientsFile;		   /**< string clientsFile. String with the client's file name. */
 	string ordersFile;         /**< string ordersFile. String with the order's file name. */
 	string transactionsFile;   /**< string transactionsFile. String with the transaction's file name. */
+	string companysFile;       /**< string companysFile. String with the company's file name. */
+	
 	bool clientsChanged;	   /**<	bool clientsChanged. Boolean set to true if any changes done to the clients during execution. */	
 	bool transactionsChanged;  /**< bool transactionsChanged. Boolean set to true if any changes done to the transactions during execution. */
 	bool ordersChanged;		   /**< bool ordersChanged. Boolean set to true if any changes done to the orders during execution. */
+	bool companysChanged;     /**< bool companysChanged. Boolean set to true if any changes done to the companys during execution. */
 
 public:
 

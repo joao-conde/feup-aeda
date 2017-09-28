@@ -10,9 +10,9 @@ Market* Market::singleton_instance = NULL;
 Market::Market() : currentNIF(0) {
 	ifstream file_in; string line;
 	unsigned numberOfObjects;
-	ordersChanged = transactionsChanged = clientsChanged = false;
+	ordersChanged = transactionsChanged = clientsChanged = companysChanged = false;
 
-	while (!initialInfo(clientsFile, transactionsFile, ordersFile)) {
+	while (!initialInfo(clientsFile, transactionsFile, ordersFile, companysFile)) {
 		cout << "\nInvalid StockMarket Initialization ! Carefully type the information required! \a\n\n";
 		cout << TAB << "\n Press ENTER to retry..."; cin.ignore(INT_MAX, '\n');
 		clearScreen();

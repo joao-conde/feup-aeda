@@ -1,11 +1,2 @@
-﻿  utils.cpp
-  Transaction.cpp
-  Order.cpp
-  menus.cpp
-  Market.cpp
-  main.cpp
-  Date.cpp
-d:\projetosc++\aeda\stockmarket\date.cpp(28): warning C4244: '=': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Client.cpp
-  Generating Code...
-  StockMarket.vcxproj -> D:\ProjetosC++\AEDA\StockMarket\Debug\StockMarket.exe
+﻿  menus.cpp
+  StockMarket.vcxproj -> D:\ProjetosC++\AEDAv2\StockMarket\Debug\StockMarket.exe

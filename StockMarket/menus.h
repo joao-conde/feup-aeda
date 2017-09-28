@@ -8,9 +8,10 @@
 *	@param clientsFile  A string with the clients file name.
 *	@param transactionsFile  A string with the transactions file name.
 *	@param ordersFile  A string with the orders file name.
+*	@param companysFile A string with the companys file name.
 *	@return A boolean, true if the set up was successfull.
 */
-bool initialInfo(string &clientsFile, string &transactionsFile, string &ordersFile);
+bool initialInfo(string &clientsFile, string &transactionsFile, string &ordersFile, string &companysFile);
 
 // Menu implementation
 
@@ -28,6 +29,11 @@ void transactionMenu();
 *	Function working as the orders editing menu.
 */
 void orderMenu();
+
+/** \fn 
+*	Function working as the company editing menu
+*/
+void companyMenu();
 
 /** \fn
 *	Function working as the starting menu (main menu).

@@ -4,7 +4,7 @@
 #include "utils.h"
 
 
-bool initialInfo(string & clientsFile, string & transactionsFile, string & ordersFile) {
+bool initialInfo(string & clientsFile, string & transactionsFile, string & ordersFile, string & companysFile) {
 	cout << TAB_BIG; showTitle("Stock Market");
 	cout << "\n Type the name of the files where information is stored (FileName.txt): \n" << endl;
 	cout << setw(21) << "Clients' file: "; setcolor(14); cin >> clientsFile;
@@ -16,7 +16,11 @@ bool initialInfo(string & clientsFile, string & transactionsFile, string & order
 	cout << setw(21) << "Orders' file: "; setcolor(14); cin >> ordersFile;
 	setcolor(15); cin.ignore(INT_MAX, '\n');	
 
-	return (validFile(clientsFile) && validFile(transactionsFile) && validFile(ordersFile) && !cin.fail());
+	cout << setw(21) << "Companys' file: "; setcolor(14); cin >> companysFile;
+	setcolor(15); cin.ignore(INT_MAX, '\n');
+
+	return (validFile(clientsFile) && validFile(transactionsFile) && validFile(ordersFile) && validFile(companysFile) 
+		&& !cin.fail());
 }
 
 /******************************************
@@ -134,6 +138,67 @@ void transactionMenu() {
 	Market::instance()->saveChanges();
 }
 
+
+/******************************************
+* Gestao de Empresas
+******************************************/
+unsigned short int companyOptions() {
+	unsigned short int option;
+
+	clearScreen();
+	showTitle("Company Menu");
+	cout << TAB << "1 - Show Information" << endl;
+	cout << TAB << "2 - Show Transaction History" << endl;
+	cout << TAB << "3 - Show unfulfilled Orders" << endl;
+	cout << TAB << "4 - Delete a unfullfilled Order" << endl;
+	cout << TAB << "5 - Exit menu" << endl << endl;
+	string msg = TAB; msg += "Your option: ";
+	option = getUnsignedShortInt(1, 5, msg);
+
+	if (option == 5)
+		return false;	// false == 0
+
+	return option;
+}
+
+void companyMenu() {
+	unsigned short int option;
+	cout << endl;
+
+	while ((option = clientOptions())) {
+		switch (option) {
+		case 1: //Show Info
+			Market::instance()->showClientInfo();
+			break;
+		case 2: //Show Client History
+			cout << endl << TAB << "Client's transaction History:\n\n";
+			Market::instance()->showClientHistory();
+			break;
+		case 3:
+			cout << endl << TAB << "Client's unfulfilled Orders:\n";
+			Market::instance()->showClientOrders();
+			break;
+		case 4:
+			int choice;
+			Market::instance()->showClientOrders();
+			cout << endl << TAB << "Select the Order you wish to erase: (example: 1 for first, 2 for second,...)\n" << TAB << "Your option: ";
+			cin >> choice; cin.ignore();
+
+			if (Market::instance()->eraseClientOrder(choice))
+				cout << TAB << "Order successfully erased!\n\n";
+			else
+				cout << TAB << "Failed to erase Order!\n\n";
+			break;
+		}
+		cout << endl << TAB << "Press ENTER to continue..."; cin.ignore(INT_MAX, '\n');
+	}
+
+	Market::instance()->saveChanges();
+}
+
+
+
+
 /******************************************
 * Gestao de Ordens
 ******************************************/
@@ -212,13 +277,14 @@ unsigned short int homeOptions() {
 	cout << TAB << "1 - Manage clients" << endl;
 	cout << TAB << "2 - Manage transactions" << endl;
 	cout << TAB << "3 - Manage orders" << endl;
-	cout << TAB << "4 - Statistic Information" << endl;
-	cout << TAB << "5 - Sign Out" << endl << endl;
+	cout << TAB << "4 - Manage companys" << endl;
+	cout << TAB << "5 - Statistic Information" << endl;
+	cout << TAB << "6 - Sign Out" << endl << endl;
 	string msg = TAB; msg += "Your option: ";
-	option = getUnsignedShortInt(1, 5, msg);
+	option = getUnsignedShortInt(1, 6, msg);
 	cout << endl << endl;
 
-	if (option == 5) {
+	if (option == 6) {
 		Market::instance()->signOut();
 		return false;
 	}
@@ -238,7 +304,9 @@ void homeMenu() {
 			break;
 		case 3: orderMenu();
 			break;
-		case 4:
+		case 4: companyMenu();
+			break;
+		case 5:
 			cout << *(Market::instance());
 			cout << endl << TAB << "Press ENTER to continue..."; cin.ignore(INT_MAX, '\n');
 			break;
