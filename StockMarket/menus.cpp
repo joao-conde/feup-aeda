@@ -147,15 +147,16 @@ unsigned short int companyOptions() {
 
 	clearScreen();
 	showTitle("Company Menu");
-	cout << TAB << "1 - Show Information" << endl;
-	cout << TAB << "2 - Show Transaction History" << endl;
-	cout << TAB << "3 - Show unfulfilled Orders" << endl;
-	cout << TAB << "4 - Delete a unfullfilled Order" << endl;
-	cout << TAB << "5 - Exit menu" << endl << endl;
+	cout << TAB << "1 - Show all market companys" << endl;
+	cout << TAB << "2 - Show companys related to a business area" << endl;
+	cout << TAB << "3 - Insert new company into market" << endl;
+	cout << TAB << "4 - Delete an existing company from the market" << endl;
+	cout << TAB << "5 - Change an existing company highest transaction value" << endl;
+	cout << TAB << "6 - Exit menu" << endl << endl;
 	string msg = TAB; msg += "Your option: ";
-	option = getUnsignedShortInt(1, 5, msg);
+	option = getUnsignedShortInt(1, 6, msg);
 
-	if (option == 5)
+	if (option == 6)
 		return false;	// false == 0
 
 	return option;
@@ -165,7 +166,7 @@ void companyMenu() {
 	unsigned short int option;
 	cout << endl;
 
-	while ((option = clientOptions())) {
+	while ((option = companyOptions())) {
 		switch (option) {
 		case 1: //Show Info
 			Market::instance()->showClientInfo();
