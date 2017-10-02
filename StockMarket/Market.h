@@ -2,9 +2,11 @@
 
 #include <map>
 #include <vector>
+#include <set>
 #include "Client.h"
 #include "Transaction.h"
 #include "Order.h"
+#include "Company.h"
 
 using namespace std;
 
@@ -33,6 +35,9 @@ private:
 	map<nif_t, Client *> clients;			/**< Map clients. A map where the key's are clients NIF's and the values are client pointers. Corresponds a NIF and a client. */
 	vector<Transaction *> transactions;		/**< Vector transactions. A vector saving pointers of all Market's transactions. */
 	vector<Order *> unfulfilled_orders;		/**< Vector unfulfilled_orders. A vector saving pointers of all Market's unfulfilled orders. */
+	
+	set<Company> companys;		/**< Set companys. Implemented as a Binary Search Tree, of Company objects. */
+
 
 	string clientsFile;		   /**< string clientsFile. String with the client's file name. */
 	string ordersFile;         /**< string ordersFile. String with the order's file name. */

@@ -26,15 +26,35 @@ Company::Company(ifstream& in) {
 
 }
 
+
+
+
 void Company::saveChanges(ofstream& out) const {
 	out << name << " ; " << business_area << " ; " << NIF << " ; " << max_transaction_value << endl;
 }
 
 
 
-
-
 ostream& operator<<(ostream& out, const Company& c) {
 	out << c.name << c.business_area << c.NIF << c.max_transaction_value << endl;
 	return out;
+}
+
+
+bool operator<(const Company &c1, const Company &c2) {
+	
+	//order alphabetically by bussiness area
+	if (c1.business_area.compare(c2.business_area) < 0)
+		return true;
+	else
+		if (c1.business_area.compare(c2.business_area) > 0)
+			return false;
+
+
+	//order alphabetically by company name (UNIQUE ID: no different companys with the same name)
+	if (c1.name.compare(c2.name) < 0)
+		return true;
+	else
+		if (c1.name.compare(c2.name) > 0)
+			return false;
 }

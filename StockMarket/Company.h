@@ -49,16 +49,15 @@ public:
 	*/
 	void saveChanges(ofstream& out) const;
 
+	/**
+	* Overload of Operator << for class Company.
+	* Prints the company in a human friendly way.
+	* @param out The outstream to write to.
+	* @param c The company to be written.
+	* @return Returns the output stream to allow chainning
+	*/
 	friend ostream& operator<<(ostream&, const Company&);
 
+	friend bool operator<(const Company &c1, const Company &c2);
+
 };
-
-
-/**
-* Overload of Operator << for class Company.
-* Prints the company in a human friendly way.
-* @param out The outstream to write to.
-* @param c The company to be written.
-* @return Returns the output stream to allow chainning
-*/
-ostream& operator<<(ostream& out, const Company& c);

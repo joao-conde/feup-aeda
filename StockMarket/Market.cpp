@@ -66,6 +66,16 @@ Market::Market() : currentNIF(0) {
 
 	// Sort unfulfilled orders by chronological order
 	sort(unfulfilled_orders.begin(), unfulfilled_orders.end(), [](const Order * o1, const Order * o2) {return o1->getDatePlaced() < o2->getDatePlaced(); });
+
+	// Load Companys fom file
+	file_in.open(companysFile);
+	file_in >> numberOfObjects; file_in.ignore(3, '\n');
+
+	for (unsigned i = 0; i < numberOfObjects; ++i) {
+		companys.insert(Company(file_in));
+	}
+
+	file_in.close();
 }
 
 Market::~Market() {
@@ -286,6 +296,17 @@ void Market::saveChanges() const {
 
 		for (Order * ptr : unfulfilled_orders)
 			ptr->saveChanges(out);
+
+		out.close();
+	}
+
+	//Save Companys if changed
+	if (companysChanged) {
+		out.open(companysFile);
+		out << companys.size() << endl;
+
+		for (Company comp : companys)
+			comp.saveChanges(out);
 
 		out.close();
 	}
