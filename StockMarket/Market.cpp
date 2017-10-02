@@ -230,6 +230,57 @@ void Market::listSellOrders() const {
 	}
 }
 
+void Market::listCompanys() const {
+	for (Company c: companys) {
+		cout << c;
+	}
+}
+
+void Market::listCompanys(string business) const {
+	for (Company c : companys) {
+		if (c.getArea() == business)
+			cout << c;
+	}
+}
+
+void Market::insertCompany(Company c) {
+	
+	auto ret = companys.insert(c);
+	
+	if (ret.second)
+		companysChanged = true;
+	else
+		cout << TAB << "Failed insertion. Company already exists." << endl;
+
+}
+
+void Market::deleteCompany(string name) {
+	
+	for (auto o : companys) {
+		if (o.getName() == name) {
+			companys.erase(o);
+			companysChanged = true;
+			break;
+		}
+	}
+	
+}
+
+void Market::changeCompany(string name, double value) {
+	
+	for (auto c : companys) {
+		if (c.getName() == name) {
+			if (value > c.getValue()) {
+				c.setValue(value);
+				companysChanged = true;
+			}
+			else
+				cout << TAB << "Invalid value. Smaller than the already existant." << endl;
+		}
+	}
+}
+
+
 
 // Returns pair< vector<Transaction *>::iterator, vector<Transaction *>::iterator >
 pair< vector<Transaction *>::iterator, vector<Transaction *>::iterator > Market::placeOrder(Order * ptr)

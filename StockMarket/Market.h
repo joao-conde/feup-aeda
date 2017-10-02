@@ -117,6 +117,31 @@ public:
 	void listSellOrders() const;
 
 	/**
+	* A const member function that displays all the companys.
+	*/
+	void listCompanys() const;
+
+	/**
+	* A const member function that displays all the companys from one sector of activity.
+	*/
+	void listCompanys(string business) const;
+
+	/**
+	* A member function that inserts into company BST a new company.
+	*/
+	void insertCompany(Company c);
+
+	/**
+	* A member function that deletes a company from the BST companys.
+	*/
+	void deleteCompany(string name);
+
+	/**
+	* A member function that changes the maximum transaction value of a company in the BST.
+	*/
+	void changeCompany(string name, double value);
+
+	/**
 	* A const member function used to get the client's history of transactions.
 	* @param c A client pointer.
 	* @return A vector of the client's transactions.

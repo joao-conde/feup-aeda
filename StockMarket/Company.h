@@ -42,7 +42,27 @@ public:
 	*/
 	Company(string name, string activity, nif_t NIF, double max_transaction);
 
-	
+
+	/**
+	* A const member function that returns the name of the company.
+	*/
+	string getName() const;
+
+	/**
+	* A const member function that returns the business area of a certain company.
+	*/
+	string getArea() const; 
+
+	/**
+	* A const member function that returns the maximum transaction value.
+	*/
+	double getValue() const;
+
+	/**
+	* A member function that changes the maximum transaction value.
+	*/
+	void setValue(double value);
+
 	/**
 	* A const member function to write the company to a save file.
 	* @param out The outputstream file to write to.

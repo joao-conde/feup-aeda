@@ -27,6 +27,21 @@ Company::Company(ifstream& in) {
 }
 
 
+string Company::getName() const {
+	return name;
+}
+
+string Company::getArea() const{
+	return business_area;}
+
+double Company::getValue() const {
+	return max_transaction_value;
+}
+
+void Company::setValue(double value) {
+	max_transaction_value = value;
+}
+
 
 
 void Company::saveChanges(ofstream& out) const {
@@ -36,7 +51,7 @@ void Company::saveChanges(ofstream& out) const {
 
 
 ostream& operator<<(ostream& out, const Company& c) {
-	out << c.name << c.business_area << c.NIF << c.max_transaction_value << endl;
+	out << c.name << " Business Area: " << c.business_area << " NIF: " << c.NIF << " Maximum transaction value: " << c.max_transaction_value << endl;
 	return out;
 }
 
@@ -57,4 +72,5 @@ bool operator<(const Company &c1, const Company &c2) {
 	else
 		if (c1.name.compare(c2.name) > 0)
 			return false;
+
 }

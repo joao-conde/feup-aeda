@@ -164,31 +164,37 @@ unsigned short int companyOptions() {
 
 void companyMenu() {
 	unsigned short int option;
+	string s, s2;
+	nif_t nif;
+	double value;
+
 	cout << endl;
 
 	while ((option = companyOptions())) {
 		switch (option) {
-		case 1: //Show Info
-			Market::instance()->showClientInfo();
+		case 1: 
+			Market::instance()->listCompanys();
 			break;
-		case 2: //Show Client History
-			cout << endl << TAB << "Client's transaction History:\n\n";
-			Market::instance()->showClientHistory();
+		case 2: 
+			cout << TAB << "Display all the companys working in: ";
+			getline(cin, s, '\n'); trim(s);
+			Market::instance()->listCompanys(s);
 			break;
 		case 3:
-			cout << endl << TAB << "Client's unfulfilled Orders:\n";
-			Market::instance()->showClientOrders();
+			cout << TAB << "New company name: "; getline(cin, s, '\n'); trim(s);
+			cout << TAB << "Area of work: "; getline(cin, s2, '\n'); trim(s2);
+			cout << TAB << "NIF: "; cin >> nif; cin.ignore();
+			cout << TAB << "Maximum transaction value: "; cin >> value; cin.ignore();
+			Market::instance()->insertCompany(Company(s, s2, nif, value));
 			break;
 		case 4:
-			int choice;
-			Market::instance()->showClientOrders();
-			cout << endl << TAB << "Select the Order you wish to erase: (example: 1 for first, 2 for second,...)\n" << TAB << "Your option: ";
-			cin >> choice; cin.ignore();
-
-			if (Market::instance()->eraseClientOrder(choice))
-				cout << TAB << "Order successfully erased!\n\n";
-			else
-				cout << TAB << "Failed to erase Order!\n\n";
+			cout << TAB << "Company name: "; getline(cin, s, '\n'); trim(s);
+			Market::instance()->deleteCompany(s);
+			break;
+		case 5:
+			cout << TAB << "Company name: "; getline(cin, s, '\n'); trim(s);
+			cout << TAB << "New value: "; cin >> value; cin.ignore();
+			Market::instance()->changeCompany(s, value);
 			break;
 		}
 		cout << endl << TAB << "Press ENTER to continue..."; cin.ignore(INT_MAX, '\n');
