@@ -147,10 +147,8 @@ public:
 
 	void listInvestors();
 	void listInvestorsB(double budget);
-
-/*
-	void listInvestorsI(double maxInvest) const;
-
+	void listInvestorsI(double maxInvest);
+	/*
 	void clientRequestInvestor(double valueRequested);*/
 
 	/**

@@ -88,10 +88,10 @@
     <Text Include="t.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="company.txt">
+    <Text Include="i.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="i.txt">
+    <Text Include="b.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

@@ -322,6 +322,20 @@ void Market::listInvestorsB(double budget) {
 	investors = helper;
 }
 
+void Market::listInvestorsI(double maxInvest) {
+	priority_queue<Investor> helper;
+	int numberOfInvestors = investors.size();
+
+	for (int i = 0; i < numberOfInvestors; i++) {
+		if (investors.top().getMaxInv() >= maxInvest) {
+			cout << investors.top();
+		}
+		helper.push(investors.top());
+		investors.pop();
+	}
+	investors = helper;
+}
+
 // Returns pair< vector<Transaction *>::iterator, vector<Transaction *>::iterator >
 pair< vector<Transaction *>::iterator, vector<Transaction *>::iterator > Market::placeOrder(Order * ptr)
 {

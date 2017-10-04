@@ -231,7 +231,7 @@ unsigned short int investorOptions() {
 
 void investorMenu() {
 	unsigned short int option;
-	double budget;
+	double value;
 
 	
 	cout << endl;
@@ -242,11 +242,12 @@ void investorMenu() {
 			Market::instance()->listInvestors();
 			break;
 		case 2: 
-			cout << TAB << "Search for investors with a budget higher than: "; cin >> budget; cin.ignore(); cout << endl;
-			Market::instance()->listInvestorsB(budget);
+			cout << TAB << "Search for investors with a budget equal or greater than: "; cin >> value; cin.ignore(); cout << endl;
+			Market::instance()->listInvestorsB(value);
 			break;
 		case 3:
-			
+			cout << TAB << "Search for investors with a maximum investment value equal or greater than: "; cin >> value; cin.ignore(); cout << endl;
+			Market::instance()->listInvestorsI(value);
 			break;
 		case 4:
 			
@@ -346,7 +347,7 @@ unsigned short int homeOptions() {
 	option = getUnsignedShortInt(1, 7, msg);
 	cout << endl << endl;
 
-	if (option == 6) {
+	if (option == 7) {
 		Market::instance()->signOut();
 		return false;
 	}
@@ -374,7 +375,6 @@ void homeMenu() {
 			cout << *(Market::instance());
 			cout << endl << TAB << "Press ENTER to continue..."; cin.ignore(INT_MAX, '\n');
 			break;
-
 		}
 
 	Market::instance()->saveChanges();

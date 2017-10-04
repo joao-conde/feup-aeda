@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="c.txt" />
-    <Text Include="company.txt" />
+    <Text Include="b.txt" />
     <Text Include="i.txt" />
     <Text Include="o.txt" />
     <Text Include="t.txt" />
