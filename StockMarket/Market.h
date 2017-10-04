@@ -39,7 +39,7 @@ private:
 	vector<Order *> unfulfilled_orders;		/**< Vector unfulfilled_orders. A vector saving pointers of all Market's unfulfilled orders. */
 	
 	set<Company> companys;		/**< Set companys. Implemented as a Binary Search Tree, of Company objects. */
-	queue<Investor> investors; 
+	priority_queue<Investor> investors;
 
 	string clientsFile;		   /**< string clientsFile. String with the client's file name. */
 	string ordersFile;         /**< string ordersFile. String with the order's file name. */
@@ -145,13 +145,13 @@ public:
 	*/
 	void changeCompany(string name, double value);
 
-	void listInvestors() const;
+	void listInvestors();
+	void listInvestorsB(double budget);
 
-	void listInvestors(double budget) const;
+/*
+	void listInvestorsI(double maxInvest) const;
 
-	void listInvestors(double maxInvest) const;
-
-	void clientRequestInvestor(double valueRequested);
+	void clientRequestInvestor(double valueRequested);*/
 
 	/**
 	* A const member function used to get the client's history of transactions.

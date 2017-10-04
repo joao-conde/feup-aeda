@@ -35,6 +35,8 @@ void orderMenu();
 */
 void companyMenu();
 
+void investorMenu();
+
 /** \fn
 *	Function working as the starting menu (main menu).
 */

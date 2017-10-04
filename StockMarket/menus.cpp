@@ -207,6 +207,57 @@ void companyMenu() {
 }
 
 
+/******************************************
+* Gestao de Investidores
+******************************************/
+unsigned short int investorOptions() {
+	unsigned short int option;
+
+	clearScreen();
+	showTitle("Investors Menu");
+	cout << TAB << "1 - List ALL investors" << endl;
+	cout << TAB << "2 - List investors with certain budget" << endl;
+	cout << TAB << "3 - List investors with certain transaction limits" << endl;
+	cout << TAB << "4 - Request investment" << endl;
+	cout << TAB << "5 - Exit sub-menu" << endl << endl;
+	string msg = TAB; msg += "Your option: ";
+	option = getUnsignedShortInt(1, 5, msg);
+
+	if (option == 5)
+		return false;	// false == 0
+
+	return option;
+}
+
+void investorMenu() {
+	unsigned short int option;
+	double budget;
+
+	
+	cout << endl;
+
+	while ((option = investorOptions())) {
+		switch (option) {
+		case 1: //list all investors
+			Market::instance()->listInvestors();
+			break;
+		case 2: 
+			cout << TAB << "Search for investors with a budget higher than: "; cin >> budget; cin.ignore(); cout << endl;
+			Market::instance()->listInvestorsB(budget);
+			break;
+		case 3:
+			
+			break;
+		case 4:
+			
+			break;
+		}
+		cout << endl << TAB << "Press ENTER to continue..."; cin.ignore(INT_MAX, '\n');
+	}
+
+	Market::instance()->saveChanges();
+}
+
 
 
 /******************************************
@@ -288,10 +339,11 @@ unsigned short int homeOptions() {
 	cout << TAB << "2 - Manage transactions" << endl;
 	cout << TAB << "3 - Manage orders" << endl;
 	cout << TAB << "4 - Manage companys" << endl;
-	cout << TAB << "5 - Statistic Information" << endl;
-	cout << TAB << "6 - Sign Out" << endl << endl;
+	cout << TAB << "5 - Manage investors" << endl;
+	cout << TAB << "6 - Statistic Information" << endl;
+	cout << TAB << "7 - Sign Out" << endl << endl;
 	string msg = TAB; msg += "Your option: ";
-	option = getUnsignedShortInt(1, 6, msg);
+	option = getUnsignedShortInt(1, 7, msg);
 	cout << endl << endl;
 
 	if (option == 6) {
@@ -316,7 +368,9 @@ void homeMenu() {
 			break;
 		case 4: companyMenu();
 			break;
-		case 5:
+		case 5: investorMenu();
+			break;
+		case 6:
 			cout << *(Market::instance());
 			cout << endl << TAB << "Press ENTER to continue..."; cin.ignore(INT_MAX, '\n');
 			break;

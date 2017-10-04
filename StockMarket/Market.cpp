@@ -294,7 +294,33 @@ void Market::changeCompany(string name, double value) {
 	}
 }
 
+void Market::listInvestors(){
+	
+	priority_queue<Investor> helper;
+	int numberOfInvestors = investors.size();
 
+	for (int i = 0; i < numberOfInvestors; i++) {
+		cout << investors.top();
+		helper.push(investors.top());
+		investors.pop();
+	}
+
+	investors = helper;
+}
+
+void Market::listInvestorsB(double budget) {
+	priority_queue<Investor> helper;
+	int numberOfInvestors = investors.size();
+
+	for (int i = 0; i < numberOfInvestors; i++) {
+		if (investors.top().getBudget() >= budget) {
+			cout << investors.top();
+		}
+			helper.push(investors.top());
+			investors.pop();
+	}
+	investors = helper;
+}
 
 // Returns pair< vector<Transaction *>::iterator, vector<Transaction *>::iterator >
 pair< vector<Transaction *>::iterator, vector<Transaction *>::iterator > Market::placeOrder(Order * ptr)

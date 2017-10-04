@@ -37,6 +37,10 @@ public:
 	*/
 	Investor(string name, tlmv_t phone, double maxInvest, double budget);
 
+	double getBudget() const;
+	double getMaxInv() const;
 
+	friend ostream& operator<<(ostream& out, const Investor &i);
 
+	friend bool operator<(const Investor &i1, const Investor &i2);
 };
