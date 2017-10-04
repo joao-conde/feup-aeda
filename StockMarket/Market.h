@@ -3,10 +3,12 @@
 #include <map>
 #include <vector>
 #include <set>
+#include <queue>
 #include "Client.h"
 #include "Transaction.h"
 #include "Order.h"
 #include "Company.h"
+#include "Investor.h"
 
 using namespace std;
 
@@ -37,17 +39,19 @@ private:
 	vector<Order *> unfulfilled_orders;		/**< Vector unfulfilled_orders. A vector saving pointers of all Market's unfulfilled orders. */
 	
 	set<Company> companys;		/**< Set companys. Implemented as a Binary Search Tree, of Company objects. */
-
+	queue<Investor> investors; 
 
 	string clientsFile;		   /**< string clientsFile. String with the client's file name. */
 	string ordersFile;         /**< string ordersFile. String with the order's file name. */
 	string transactionsFile;   /**< string transactionsFile. String with the transaction's file name. */
 	string companysFile;       /**< string companysFile. String with the company's file name. */
-	
+	string investorsFile;
+
 	bool clientsChanged;	   /**<	bool clientsChanged. Boolean set to true if any changes done to the clients during execution. */	
 	bool transactionsChanged;  /**< bool transactionsChanged. Boolean set to true if any changes done to the transactions during execution. */
 	bool ordersChanged;		   /**< bool ordersChanged. Boolean set to true if any changes done to the orders during execution. */
 	bool companysChanged;     /**< bool companysChanged. Boolean set to true if any changes done to the companys during execution. */
+	bool investorsChanged;
 
 public:
 
@@ -140,6 +144,14 @@ public:
 	* A member function that changes the maximum transaction value of a company in the BST.
 	*/
 	void changeCompany(string name, double value);
+
+	void listInvestors() const;
+
+	void listInvestors(double budget) const;
+
+	void listInvestors(double maxInvest) const;
+
+	void clientRequestInvestor(double valueRequested);
 
 	/**
 	* A const member function used to get the client's history of transactions.

@@ -4,7 +4,7 @@
 #include "utils.h"
 
 
-bool initialInfo(string & clientsFile, string & transactionsFile, string & ordersFile, string & companysFile) {
+bool initialInfo(string & clientsFile, string & transactionsFile, string & ordersFile, string & companysFile, string &investorsFile) {
 	cout << TAB_BIG; showTitle("Stock Market");
 	cout << "\n Type the name of the files where information is stored (FileName.txt): \n" << endl;
 	cout << setw(21) << "Clients' file: "; setcolor(14); cin >> clientsFile;
@@ -19,8 +19,11 @@ bool initialInfo(string & clientsFile, string & transactionsFile, string & order
 	cout << setw(21) << "Companys' file: "; setcolor(14); cin >> companysFile;
 	setcolor(15); cin.ignore(INT_MAX, '\n');
 
+	cout << setw(21) << "Investors' file: "; setcolor(14); cin >> investorsFile;
+	setcolor(15); cin.ignore(INT_MAX, '\n');
+
 	return (validFile(clientsFile) && validFile(transactionsFile) && validFile(ordersFile) && validFile(companysFile) 
-		&& !cin.fail());
+		&& validFile(investorsFile) && !cin.fail());
 }
 
 /******************************************

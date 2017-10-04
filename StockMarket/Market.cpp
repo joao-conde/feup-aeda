@@ -12,7 +12,7 @@ Market::Market() : currentNIF(0) {
 	unsigned numberOfObjects;
 	ordersChanged = transactionsChanged = clientsChanged = companysChanged = false;
 
-	while (!initialInfo(clientsFile, transactionsFile, ordersFile, companysFile)) {
+	while (!initialInfo(clientsFile, transactionsFile, ordersFile, companysFile, investorsFile)) {
 		cout << "\nInvalid StockMarket Initialization ! Carefully type the information required! \a\n\n";
 		cout << TAB << "\n Press ENTER to retry..."; cin.ignore(INT_MAX, '\n');
 		clearScreen();
@@ -73,6 +73,16 @@ Market::Market() : currentNIF(0) {
 
 	for (unsigned i = 0; i < numberOfObjects; ++i) {
 		companys.insert(Company(file_in));
+	}
+
+	file_in.close();
+
+	// Load Investors from file
+	file_in.open(investorsFile);
+	file_in >> numberOfObjects; file_in.ignore(3, '\n');
+
+	for (unsigned int i = 0; i < numberOfObjects; i++) {
+		investors.push(Investor(file_in));
 	}
 
 	file_in.close();
@@ -271,12 +281,16 @@ void Market::changeCompany(string name, double value) {
 	for (auto c : companys) {
 		if (c.getName() == name) {
 			if (value > c.getValue()) {
-				c.setValue(value);
+				Company newcomp = c;
+				newcomp.setValue(value);
+				deleteCompany(name); 
+				insertCompany(newcomp);
 				companysChanged = true;
+				break;
 			}
 			else
 				cout << TAB << "Invalid value. Smaller than the already existant." << endl;
-		}
+		} 
 	}
 }
 

@@ -1,5 +1,5 @@
 #include "Company.h"
-
+#include "utils.h"
 
 Company::Company(string name, string activity, nif_t NIF, double max_transaction) : 
 	name(name), business_area(activity), NIF(NIF), max_transaction_value(max_transaction){}
@@ -51,7 +51,7 @@ void Company::saveChanges(ofstream& out) const {
 
 
 ostream& operator<<(ostream& out, const Company& c) {
-	out << c.name << " Business Area: " << c.business_area << " NIF: " << c.NIF << " Maximum transaction value: " << c.max_transaction_value << endl;
+	out << TAB << setw(10) << c.name << TAB << " Business Area: " << setw(23) << c.business_area << TAB << " NIF: " << setw(10) << c.NIF << TAB << " Maximum transaction value: " << setw(7) << c.max_transaction_value << endl;
 	return out;
 }
 

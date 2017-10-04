@@ -42,6 +42,9 @@
     <ClInclude Include="Company.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Investor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="utils.cpp">
@@ -71,6 +74,9 @@
     <ClCompile Include="Company.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Investor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="c.txt">
@@ -83,6 +89,9 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="company.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="i.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

@@ -11,7 +11,7 @@
 *	@param companysFile A string with the companys file name.
 *	@return A boolean, true if the set up was successfull.
 */
-bool initialInfo(string &clientsFile, string &transactionsFile, string &ordersFile, string &companysFile);
+bool initialInfo(string &clientsFile, string &transactionsFile, string &ordersFile, string &companysFile, string &investorsFile);
 
 // Menu implementation
 

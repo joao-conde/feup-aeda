@@ -21,3 +21,5 @@
 *	Definition for a type representing a client's NIF.
 */
 typedef unsigned int nif_t;
+
+typedef unsigned int tlmv_t;
