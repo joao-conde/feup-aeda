@@ -4,12 +4,13 @@
 #include "Mail.h"
 #include "Postman.h"
 #include "PostOffice.h"
+#include "utils.h"
 #include <vector>
 #include <string>
 using namespace std;
 
 void test_a() {
-	/*vector<int> v1;
+	vector<int> v1;
 	v1.push_back(10); v1.push_back(8);
 	v1.push_back(12); v1.push_back(8);
 	ASSERT_EQUAL(3, numberDifferent(v1));
@@ -18,11 +19,11 @@ void test_a() {
 	ASSERT_EQUAL(1, numberDifferent(v2));
 	v2.push_back("rio"); v2.push_back("arvore");
 	v2.push_back("sol"); v2.push_back("sol");
-	ASSERT_EQUAL(4, numberDifferent(v2));*/
+	ASSERT_EQUAL(4, numberDifferent(v2));
 }
 
 void test_b() {
-	/*PostOffice po;
+	PostOffice po;
 	Postman p1;
 	p1. setName("joao");
 	p1.addMail(new RegularMail("ana", "rui","4400-146", 33));
@@ -55,11 +56,11 @@ void test_b() {
 	mailP = po.removePostman("joao");
 	ASSERT_EQUAL(2, mailP.size());
 
-	ASSERT_EQUAL(0,po.getPostman().size());*/
+	ASSERT_EQUAL(0,po.getPostman().size());
 }
 
 void test_c() {
-	/*RegularMail m1("manuel", "ana","3330-454", 33);
+	RegularMail m1("manuel", "ana","3330-454", 33);
 	RegularMail m2("ana", "rui","4400-146", 550);
 	GreenMail m3("maria", "luis","2520-110", "bag");
 	GreenMail m4("carla", "lara","7100-514", "envelope");
@@ -67,11 +68,11 @@ void test_c() {
 	ASSERT_EQUAL(75, m1.getPrice());
 	ASSERT_EQUAL(325, m2.getPrice());
 	ASSERT_EQUAL(200, m3.getPrice());
-	ASSERT_EQUAL(80, m4.getPrice());*/
+	ASSERT_EQUAL(80, m4.getPrice());
 }
 
 void test_d() {
-/*	PostOffice po("3100-000", "4409-999");
+	PostOffice po("3100-000", "4409-999");
 	po.addMailToSend(new RegularMail("manuel", "ana","3330-454", 33));
 	po.addMailToSend(new RegularMail("ana", "rui","4400-146", 550));
 	po.addMailToSend(new GreenMail("maria", "luis","2520-110", "bag"));
@@ -91,7 +92,7 @@ void test_d() {
 	ASSERT_EQUAL(140, bal);
 	ASSERT_EQUAL(1,mailToOtherPO.size());
 	ASSERT_EQUAL(0,po2.getMailToDeliver().size());
-	ASSERT_EQUAL(0,po2.getMailToSend().size());*/
+	ASSERT_EQUAL(0,po2.getMailToSend().size());
 }
 
 void test_e() {

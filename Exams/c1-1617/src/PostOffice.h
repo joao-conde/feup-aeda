@@ -24,8 +24,8 @@ public:
 	vector<Mail *> getMailToSend() const;
 	vector<Mail *> getMailToDeliver() const;
 	vector<Postman> getPostman() const;
-	//-------
-	//vector<Mail *> removePostman(string name);
+
+	vector<Mail *> removePostman(string name);
 	//vector<Mail *> endOfDay(unsigned int &balance);
 	//Postman addMailToPostman(Mail *m, string name);
 };
