@@ -8,3 +8,7 @@ StockMarket folder
 TP classes folder : 
 	-theoretical-practical classes exercises organized by class (mainly Portuguese)
 	-eclipse enviroment running CUTE tests
+
+
+Exams:
+	-multiple exams
