@@ -3,8 +3,15 @@
  */
 #include "Postman.h"
 
+unsigned int Postman::nextID = 1;
 
 Postman::Postman(): id(0) {}
+
+Postman::Postman(string name){
+	this->name = name;
+	this->id = this->nextID;
+	nextID++;
+}
 
 void Postman::setName(string nm){
 	name = nm;
@@ -29,7 +36,4 @@ void Postman::addMail(vector<Mail *> mails) {
 unsigned int Postman::getID() const{
 	return id;
 }
-
-
-
 

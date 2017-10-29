@@ -50,3 +50,39 @@ vector<Mail *> PostOffice::removePostman(string name){
 }
 
 
+vector<Mail *> PostOffice::endOfDay(unsigned int &balance){
+
+	vector<Mail *> ret;
+	balance = 0;
+
+	for(int i = 0; i < this->mailToSend.size(); i++){
+
+		balance += mailToSend.at(i)->getPrice();
+
+		if(mailToSend.at(i)->getZipCode() <= this->lastZipCode &&
+				mailToSend.at(i)->getZipCode() >= this->firstZipCode){
+			this->addMailToDeliver(mailToSend.at(i));
+		}
+		else{
+			ret.push_back(mailToSend.at(i));
+		}
+		mailToSend.erase(mailToSend.begin() + i);
+		i--;
+	}
+
+	return ret;
+}
+
+
+Postman PostOffice::addMailToPostman(Mail *m, string name){
+
+	for(int i = 0; i < postmen.size(); i++){
+		if(postmen.at(i).getName() == name){
+			postmen.at(i).addMail(m);
+			return postmen.at(i);
+		}
+	}
+
+	throw NoPostmanException(name);
+}
+
