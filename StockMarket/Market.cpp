@@ -296,16 +296,16 @@ void Market::changeCompany(string name, double value) {
 
 void Market::listInvestors(){
 	
-	priority_queue<Investor> helper;
+	priority_queue<Investor> helperQueue;
 	int numberOfInvestors = investors.size();
 
 	for (int i = 0; i < numberOfInvestors; i++) {
 		cout << investors.top();
-		helper.push(investors.top());
+		helperQueue.push(investors.top());
 		investors.pop();
 	}
 
-	investors = helper;
+	investors = helperQueue;
 }
 
 void Market::listInvestorsB(double budget) {
@@ -334,6 +334,33 @@ void Market::listInvestorsI(double maxInvest) {
 		investors.pop();
 	}
 	investors = helper;
+}
+
+Investor Market::requestInvestement(double requestValue) {
+
+	priority_queue<Investor> helperQueue;
+	Investor helperInvest;
+	int numberOfInvestors = investors.size();
+	bool requestFilled = false;
+	
+	
+	for (int i = 0; i < numberOfInvestors; i++) {
+		if (!requestFilled && investors.top().getBudget() >= requestValue) {
+			helperInvest = investors.top();
+			helperInvest.debitInvest(requestValue);
+
+			if (helperInvest.getBudget() > 0)
+				helperQueue.push(helperInvest);
+			
+			requestFilled = true;
+		}
+		else helperQueue.push(investors.top());
+		
+		investors.pop();
+	}
+
+	investors = helperQueue;
+	return helperInvest;
 }
 
 // Returns pair< vector<Transaction *>::iterator, vector<Transaction *>::iterator >

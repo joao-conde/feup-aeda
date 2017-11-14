@@ -39,8 +39,38 @@ public:
 
 	double getBudget() const;
 	double getMaxInv() const;
+	tlmv_t getPhoneNumber() const;
+
+	void debitInvest(double value);
 
 	friend ostream& operator<<(ostream& out, const Investor &i);
 
 	friend bool operator<(const Investor &i1, const Investor &i2);
+};
+
+/**
+* A structure to encapsulate the Hash and Comparison functions of Investor Pointers.
+*/
+struct investorPtrHash
+{
+	/**
+	* Hash Function for Investor*
+	* @param i Pointer to an Investor object.
+	* @return hash value.
+	*/
+	int operator() (const Investor * i) const
+	{
+		return (int)i->getPhoneNumber();
+	}
+
+	/**
+	* Comparison Function for Investor*
+	* @param i1 Pointer to an Investor object.
+	* @param i2 Pointer to an Investor object.
+	* @return true if Investors pointed by i1 and i2 are the same, false otherwise.
+	*/
+	bool operator() (const Investor * i1, const Investor * i2) const
+	{
+		return i1 == i2; // Two client's are distinct if their pointers are distinct
+	}
 };

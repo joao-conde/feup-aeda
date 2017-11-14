@@ -4,6 +4,7 @@
 #include <vector>
 #include <set>
 #include <queue>
+#include <unordered_set>
 #include "Client.h"
 #include "Transaction.h"
 #include "Order.h"
@@ -40,6 +41,7 @@ private:
 	
 	set<Company> companys;		/**< Set companys. Implemented as a Binary Search Tree, of Company objects. */
 	priority_queue<Investor> investors;
+	unordered_set<Investor*, investorPtrHash, investorPtrHash> inactive_investors;
 
 	string clientsFile;		   /**< string clientsFile. String with the client's file name. */
 	string ordersFile;         /**< string ordersFile. String with the order's file name. */
@@ -148,6 +150,8 @@ public:
 	void listInvestors();
 	void listInvestorsB(double budget);
 	void listInvestorsI(double maxInvest);
+	Investor requestInvestement(double requestValue);
+
 	/*
 	void clientRequestInvestor(double valueRequested);*/
 

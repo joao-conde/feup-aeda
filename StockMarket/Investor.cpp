@@ -32,15 +32,23 @@ double Investor::getMaxInv() const{
 	return maxInvestment;
 }
 
+tlmv_t Investor::getPhoneNumber() const {
+	return phone;
+}
+
+void Investor::debitInvest(double value) {
+	availableBudget -= value;
+}
+
 
 ostream& operator<<(ostream& out, const Investor &i) {
-	out << TAB << i.name << ", " << i.phone << ", " << i.maxInvestment << ", " << i.availableBudget << endl;
+	out << TAB << setw(10) << i.name << TAB << "Phone number: " << setw(10) << i.phone << TAB << "Highest Investment Value Possible: " << i.maxInvestment << TAB << "Available Budget: " << i.availableBudget << endl;
 	return out;
 }
 
 bool operator<(const Investor &i1, const Investor &i2) {
 
-	if (i1.availableBudget < i2.availableBudget)
+	if (i1.availableBudget > i2.availableBudget)
 		return true;
 	else return false;
 

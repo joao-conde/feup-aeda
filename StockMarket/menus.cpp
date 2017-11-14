@@ -155,7 +155,7 @@ unsigned short int companyOptions() {
 	cout << TAB << "3 - Insert new company into market" << endl;
 	cout << TAB << "4 - Delete an existing company from the market" << endl;
 	cout << TAB << "5 - Change an existing company highest transaction value" << endl;
-	cout << TAB << "6 - Exit menu" << endl << endl;
+	cout << TAB << "6 - Exit sub-menu" << endl << endl;
 	string msg = TAB; msg += "Your option: ";
 	option = getUnsignedShortInt(1, 6, msg);
 
@@ -250,7 +250,8 @@ void investorMenu() {
 			Market::instance()->listInvestorsI(value);
 			break;
 		case 4:
-			
+			cout << TAB << "Request an investment from the smallest budget investor that covers your request.\n" << TAB << "Value request: "; cin >> value; cin.ignore(); cout << endl;
+			cout << TAB << "Requested investment from:\n\n" << Market::instance()->requestInvestement(value);
 			break;
 		}
 		cout << endl << TAB << "Press ENTER to continue..."; cin.ignore(INT_MAX, '\n');
@@ -399,7 +400,6 @@ unsigned short int initialOptions() {
 		setcolor(14);
 		cout << TAB << "Thank you for using our software!\n" << TAB << "Developed by Andre Cruz, Edgar Carneiro and Joao Conde\n" << endl;
 		setcolor(15);
-		cout << endl << TAB << "Press ENTER to continue..."; cin.ignore(INT_MAX, '\n');
 		return false;
 	}
 
@@ -422,13 +422,13 @@ void initialMenu() {
 			nif = getValue<nif_t>("NIF: ", 10);
 
 			if (Market::instance()->signIn(name, nif)) {
-				cout << endl << TAB_BIG << "Signed In successfully!\n";
-				cout << endl << TAB_BIG << "Press ENTER to continue..."; cin.ignore(INT_MAX, '\n');
+				cout << endl << TAB << "Signed In successfully!\n";
+				cout << endl << TAB << "Press ENTER to continue..."; cin.ignore(INT_MAX, '\n');
 				homeMenu();
 			}
 			else {
-				cout << endl << TAB_BIG << "Sign In Unsuccessful.\n";
-				cout << endl << TAB_BIG << "Press ENTER to continue..."; cin.ignore(INT_MAX, '\n');
+				cout << endl << TAB << "Sign In Unsuccessful.\n";
+				cout << endl << TAB << "Press ENTER to continue..."; cin.ignore(INT_MAX, '\n');
 			}
 			break;
 		case 2:
