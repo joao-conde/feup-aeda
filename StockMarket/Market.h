@@ -147,14 +147,39 @@ public:
 	*/
 	void changeCompany(string name, double value);
 
+
+	/**
+	* A member function that lists all investors in the priority queue.
+	*/
 	void listInvestors();
+
+
+	/**
+	* A member function that lists all investors in the priority queue with equal or greater budget than specified.
+	*/
 	void listInvestorsB(double budget);
+	
+	
+	/**
+	* A member function that lists all investors in the priority queue with equal or greater maximum transaction value than specified.
+	*/
 	void listInvestorsI(double maxInvest);
+
+
+	/**
+	* A member function that requests a value from an investor to the client. Withdraws from the investor with the smallest budget that covers the client needs.
+	*/
 	void requestInvestement(double requestValue);
+
+
+	/**
+	* A member function that lists all inactive investors in the inactive-investors hash table. 
+	*/
 	void listInactiveInvestors();
 
-	/*
-	void clientRequestInvestor(double valueRequested);*/
+
+	void recreditInvestor(double loan, Investor* investor);
+	void changeInvestorContact(tlmv_t newPhone_n, Investor* investor);
 
 	/**
 	* A const member function used to get the client's history of transactions.

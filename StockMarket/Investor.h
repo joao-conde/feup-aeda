@@ -35,15 +35,19 @@ public:
 	* The construtor creates a Investor object using the data passed as arguments.
 	* @param name The Investor name.
 	*/
-	Investor(string name, tlmv_t phone, double maxInvest, double budget);
+	Investor(string name, tlmv_t phone, double maxInvest = 0, double budget = 0);
 
 	double getBudget() const;
 	double getMaxInv() const;
 	tlmv_t getPhoneNumber() const;
 
 	void debitInvest(double value);
+	void addBudget(double loan);
+	void updatePhoneN(tlmv_t phone);
 
 	friend ostream& operator<<(ostream& out, const Investor &i);
+
+	friend bool operator==(const Investor &i1, const Investor &i2);
 
 	friend bool operator<(const Investor &i1, const Investor &i2);
 };

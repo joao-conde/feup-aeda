@@ -381,6 +381,35 @@ void Market::listInactiveInvestors() {
 	}
 }
 
+void Market::recreditInvestor(double loan, Investor* investor) {
+	
+	for (auto inactiveInv : inactive_investors) {
+		if (*inactiveInv == *investor) {
+			inactive_investors.erase(inactiveInv);
+			inactiveInv->addBudget(loan);
+			investors.push(*inactiveInv);
+			cout << TAB << "LOAN MADE TO:\n" << *inactiveInv;
+			return;
+		}
+	}
+
+	cout << TAB << "UNEXISTENT INACTIVE INVESTOR\n";
+}
+
+
+void Market::changeInvestorContact(tlmv_t newPhone_n, Investor* investor) {
+	
+	for (auto inactiveInv : inactive_investors) {
+		if (*inactiveInv == *investor) {
+			inactiveInv->updatePhoneN(newPhone_n);
+			cout << TAB << "Successfully updated investor contact\n";
+			return;
+		}
+	}
+
+	cout << TAB << "UNEXISTENT INACTIVE INVESTOR\n";
+}
+
 // Returns pair< vector<Transaction *>::iterator, vector<Transaction *>::iterator >
 pair< vector<Transaction *>::iterator, vector<Transaction *>::iterator > Market::placeOrder(Order * ptr)
 {

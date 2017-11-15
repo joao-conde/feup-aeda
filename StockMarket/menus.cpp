@@ -220,11 +220,13 @@ unsigned short int investorOptions() {
 	cout << TAB << "3 - List investors with certain transaction limits" << endl;
 	cout << TAB << "4 - Request investment" << endl;
 	cout << TAB << "5 - View bankrupt investors" << endl;
-	cout << TAB << "6 - Exit sub-menu" << endl << endl;
+	cout << TAB << "6 - Provide capital to an investor" << endl;
+	cout << TAB << "7 - Change investor contact" << endl;
+	cout << TAB << "8 - Exit sub-menu" << endl << endl;
 	string msg = TAB; msg += "Your option: ";
-	option = getUnsignedShortInt(1, 6, msg);
+	option = getUnsignedShortInt(1, 8, msg);
 
-	if (option == 6)
+	if (option == 8)
 		return false;	// false == 0
 
 	return option;
@@ -233,7 +235,8 @@ unsigned short int investorOptions() {
 void investorMenu() {
 	unsigned short int option;
 	double value;
-
+	string name;
+	tlmv_t phone, newphone;
 	
 	cout << endl;
 
@@ -256,6 +259,16 @@ void investorMenu() {
 			break;
 		case 5:
 			Market::instance()->listInactiveInvestors();
+			break;
+		case 6:
+			cout << TAB << "Investor name: "; getline(cin, name, '\n'); cout << TAB << "Loan value: "; cin >> value; cin.ignore(); 
+			cout << TAB << "(Unique) phone number: "; cin >> phone; cin.ignore();
+			Market::instance()->recreditInvestor(value, new Investor(name, phone));
+			break;
+		case 7:
+			cout << TAB << "Investor name: "; getline(cin, name, '\n'); cout << TAB << "(Unique) Old phone number: "; cin >> phone; cin.ignore();
+			cout << TAB << "(Unique) New phone number: "; cin >> newphone; cin.ignore();
+			Market::instance()->changeInvestorContact(newphone, new Investor(name,phone));
 			break;
 		}
 		cout << endl << TAB << "Press ENTER to continue..."; cin.ignore(INT_MAX, '\n');

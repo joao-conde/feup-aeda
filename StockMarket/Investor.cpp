@@ -40,10 +40,27 @@ void Investor::debitInvest(double value) {
 	availableBudget -= value;
 }
 
+void Investor::addBudget(double loan) {
+	availableBudget += loan;
+}
+
+void Investor::updatePhoneN(tlmv_t phone) {
+	this->phone = phone;
+}
+
 
 ostream& operator<<(ostream& out, const Investor &i) {
 	out << TAB << setw(10) << i.name << TAB << "Phone number: " << setw(10) << i.phone << TAB << "Highest Investment Value Possible: " << i.maxInvestment << TAB << "Available Budget: " << i.availableBudget << endl;
 	return out;
+}
+
+bool operator==(const Investor &i1, const Investor &i2) {
+	
+	if (i1.name == i2.name)
+		if (i1.phone == i2.phone)
+			return true;
+
+	return false;
 }
 
 bool operator<(const Investor &i1, const Investor &i2) {
