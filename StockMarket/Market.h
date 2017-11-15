@@ -150,7 +150,8 @@ public:
 	void listInvestors();
 	void listInvestorsB(double budget);
 	void listInvestorsI(double maxInvest);
-	Investor requestInvestement(double requestValue);
+	void requestInvestement(double requestValue);
+	void listInactiveInvestors();
 
 	/*
 	void clientRequestInvestor(double valueRequested);*/

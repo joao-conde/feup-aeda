@@ -219,11 +219,12 @@ unsigned short int investorOptions() {
 	cout << TAB << "2 - List investors with certain budget" << endl;
 	cout << TAB << "3 - List investors with certain transaction limits" << endl;
 	cout << TAB << "4 - Request investment" << endl;
-	cout << TAB << "5 - Exit sub-menu" << endl << endl;
+	cout << TAB << "5 - View bankrupt investors" << endl;
+	cout << TAB << "6 - Exit sub-menu" << endl << endl;
 	string msg = TAB; msg += "Your option: ";
-	option = getUnsignedShortInt(1, 5, msg);
+	option = getUnsignedShortInt(1, 6, msg);
 
-	if (option == 5)
+	if (option == 6)
 		return false;	// false == 0
 
 	return option;
@@ -251,7 +252,10 @@ void investorMenu() {
 			break;
 		case 4:
 			cout << TAB << "Request an investment from the smallest budget investor that covers your request.\n" << TAB << "Value request: "; cin >> value; cin.ignore(); cout << endl;
-			cout << TAB << "Requested investment from:\n\n" << Market::instance()->requestInvestement(value);
+			Market::instance()->requestInvestement(value);
+			break;
+		case 5:
+			Market::instance()->listInactiveInvestors();
 			break;
 		}
 		cout << endl << TAB << "Press ENTER to continue..."; cin.ignore(INT_MAX, '\n');

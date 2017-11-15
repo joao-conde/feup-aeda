@@ -336,21 +336,27 @@ void Market::listInvestorsI(double maxInvest) {
 	investors = helper;
 }
 
-Investor Market::requestInvestement(double requestValue) {
+void Market::requestInvestement(double requestValue) {
 
 	priority_queue<Investor> helperQueue;
-	Investor helperInvest;
+	Investor* helperInvest = new Investor();
 	int numberOfInvestors = investors.size();
 	bool requestFilled = false;
 	
 	
 	for (int i = 0; i < numberOfInvestors; i++) {
 		if (!requestFilled && investors.top().getBudget() >= requestValue) {
-			helperInvest = investors.top();
-			helperInvest.debitInvest(requestValue);
+			(*helperInvest) = investors.top();
+			helperInvest->debitInvest(requestValue);
 
-			if (helperInvest.getBudget() > 0)
-				helperQueue.push(helperInvest);
+			if (helperInvest->getBudget() > 0) {
+				helperQueue.push(*helperInvest);
+				cout << TAB << "REQUESTED FROM:\n\n" << (*helperInvest);
+			}
+			else {
+				inactive_investors.insert(helperInvest);
+				cout << TAB << "INVESTOR BANKRUPT:\n\n" << (*helperInvest);
+			}
 			
 			requestFilled = true;
 		}
@@ -360,7 +366,19 @@ Investor Market::requestInvestement(double requestValue) {
 	}
 
 	investors = helperQueue;
-	return helperInvest;
+}
+
+void Market::listInactiveInvestors() {
+	
+	if (inactive_investors.size() == 0) {
+		cout << TAB << "No bankrupt investors\n\n";
+		return;
+	}
+
+	cout << TAB << "Bankrupted investors\n\n";
+	for (auto investor : inactive_investors) {
+		cout << (*investor);
+	}
 }
 
 // Returns pair< vector<Transaction *>::iterator, vector<Transaction *>::iterator >
