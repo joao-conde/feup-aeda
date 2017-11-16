@@ -5,18 +5,16 @@
 
 #include "utils.h"
 
-
-//typedef unsigned int nif_t;
-
 using namespace std;
 
 class Company {
 
 private:
 	
-	string name, business_area;
-	nif_t NIF;
-	double max_transaction_value;
+	string name; /**< string name. The company's name. */
+	string business_area; /**< string business_area. The company's business area. */
+	nif_t NIF; /**< nif_t. The company's NIF. */
+	double max_transaction_value; /**< double max_transaction_value. The company's maximum transaction value up to this date. */
 
 public:
 
@@ -41,7 +39,6 @@ public:
 	* @param max_transaction The highest value transaction ever made by that company.
 	*/
 	Company(string name, string activity, nif_t NIF, double max_transaction);
-
 
 	/**
 	* A const member function that returns the name of the company.
@@ -77,7 +74,13 @@ public:
 	* @return Returns the output stream to allow chainning
 	*/
 	friend ostream& operator<<(ostream&, const Company&);
-
+	
+	/**
+	* Overload of Operator < for class Company.
+	* Compares 2 company's.
+	* @param c1 Left side Company.
+	* @param c2 Right side Company.
+	* @return Returns true if c1 has an alphabetically smaller business area than c2. If equal returns true if c1 has an alphabetically smaller name than c2.
+	*/
 	friend bool operator<(const Company &c1, const Company &c2);
-
 };

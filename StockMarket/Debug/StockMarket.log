@@ -1,8 +1,9 @@
 ﻿  menus.cpp
   Market.cpp
-  Investor.cpp
   Generating Code...
   Compiling...
   main.cpp
+  Company.cpp
   Generating Code...
+d:\projetosc++\aedav2\stockmarket\company.cpp(76): warning C4715: 'operator<': not all control paths return a value
   StockMarket.vcxproj -> D:\ProjetosC++\AEDAv2\StockMarket\Debug\StockMarket.exe

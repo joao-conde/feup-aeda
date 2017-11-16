@@ -40,20 +40,20 @@ private:
 	vector<Order *> unfulfilled_orders;		/**< Vector unfulfilled_orders. A vector saving pointers of all Market's unfulfilled orders. */
 	
 	set<Company> companys;		/**< Set companys. Implemented as a Binary Search Tree, of Company objects. */
-	priority_queue<Investor> investors;
-	unordered_set<Investor*, investorPtrHash, investorPtrHash> inactive_investors;
+	priority_queue<Investor> investors; /**< Priority Queue investors. Implemented as a priority queue of Investor objects. */
+	unordered_set<Investor*, investorPtrHash, investorPtrHash> inactive_investors; /**< Hash table inactive_investors. Implemented as an unordered_set of investors with hash function */
 
 	string clientsFile;		   /**< string clientsFile. String with the client's file name. */
 	string ordersFile;         /**< string ordersFile. String with the order's file name. */
 	string transactionsFile;   /**< string transactionsFile. String with the transaction's file name. */
 	string companysFile;       /**< string companysFile. String with the company's file name. */
-	string investorsFile;
+	string investorsFile;	   /**< string investorsFile. String with the investor's file name. */
 
 	bool clientsChanged;	   /**<	bool clientsChanged. Boolean set to true if any changes done to the clients during execution. */	
 	bool transactionsChanged;  /**< bool transactionsChanged. Boolean set to true if any changes done to the transactions during execution. */
 	bool ordersChanged;		   /**< bool ordersChanged. Boolean set to true if any changes done to the orders during execution. */
-	bool companysChanged;     /**< bool companysChanged. Boolean set to true if any changes done to the companys during execution. */
-	bool investorsChanged;
+	bool companysChanged;      /**< bool companysChanged. Boolean set to true if any changes done to the companys during execution. */
+	bool investorsChanged;	   /**< bool investorsChanged. Boolean set to true if any changes done to the investors during execution. */
 
 public:
 
@@ -177,8 +177,14 @@ public:
 	*/
 	void listInactiveInvestors();
 
-
+	/**
+	* A member function that gives capital to an investor making him active, withdrawing him from inactive_investors hash table and placing him in the queue investors.
+	*/
 	void recreditInvestor(double loan, Investor* investor);
+
+	/**
+	* A member function that changes the phone number of an investor in the inactive_investors hash table.
+	*/
 	void changeInvestorContact(tlmv_t newPhone_n, Investor* investor);
 
 	/**

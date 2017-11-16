@@ -22,4 +22,7 @@
 */
 typedef unsigned int nif_t;
 
+/** \typedef unsigned int tlmv_t
+*	Definition for a type representing a phone number (portuguese 9-digit long).
+*/
 typedef unsigned int tlmv_t;

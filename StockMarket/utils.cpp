@@ -63,7 +63,7 @@ unsigned short int getUnsignedShortInt(unsigned short int min, unsigned short in
 
 Date getDate(string msg) {
 	unsigned short int day, month, year;
-	size_t width = 7;	//width para formatar a mensagem
+	size_t width = 7;	//width to format message
 
 	cout << msg << endl;
 	year = getValue<unsigned short int>("Year: ", width);

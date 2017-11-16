@@ -27,5 +27,5 @@ void Client::saveChanges(ofstream & out) const {
 }
 
 ostream& operator<<(ostream & out, const Client & cli) {
-	return out << "Client's name: " << cli.getName() << ". Client's NIF: " << cli.getNIF() << endl;
+	return out << TAB << "Client's name: " << cli.getName() << ". Client's NIF: " << cli.getNIF() << endl;
 }

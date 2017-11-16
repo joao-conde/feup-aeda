@@ -35,8 +35,6 @@ Date::Date() {
 
 	day = 1 + (s - (11 * 3600)) / (3600 * 24);
 
-	//int hours = ((s - (11 * 3600)) % (3600 * 24)) / 3600;
-	//int minutes = ((s % (3600 * 24)) % 3600) / 60;
 }
 
 Date::Date(string data) {

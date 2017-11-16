@@ -221,13 +221,13 @@ unsigned short int investorOptions() {
 	cout << TAB << "4 - Request investment" << endl;
 	cout << TAB << "5 - View bankrupt investors" << endl;
 	cout << TAB << "6 - Provide capital to an investor" << endl;
-	cout << TAB << "7 - Change investor contact" << endl;
+	cout << TAB << "7 - Change an inactive investor contact" << endl;
 	cout << TAB << "8 - Exit sub-menu" << endl << endl;
 	string msg = TAB; msg += "Your option: ";
 	option = getUnsignedShortInt(1, 8, msg);
 
 	if (option == 8)
-		return false;	// false == 0
+		return false;	//false == 0
 
 	return option;
 }
@@ -459,7 +459,7 @@ void initialMenu() {
 			catch (Client::InvalidNIF & e) {
 				cout << TAB <<"\nInvalidNIF: " << e.getNIF() << endl;
 			}
-			cout << TAB << "\nPress ENTER to continue..."; cin.ignore(INT_MAX, '\n');
+			cout << endl << TAB << "Press ENTER to continue..."; cin.ignore(INT_MAX, '\n');
 			break;
 		}
 

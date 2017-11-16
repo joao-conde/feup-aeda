@@ -200,21 +200,21 @@ vector<Transaction *> Market::clientHistory(Client * c_ptr) const {
 
 void Market::printTransactions() const {
 	for (Transaction * t : transactions) {
-		cout << *t;
+		cout << TAB << *t;
 	}
 }
 
 void Market::printTransactions(string stock) const {
 	for (Transaction * t : transactions) {
 		if (t->getStock() == stock)
-			cout << *t;
+			cout << TAB << *t;
 	}
 }
 
 void Market::printTransactions(Date day1, Date day2) const {
 	for (size_t i = 0; i < transactions.size(); ++i) {
 		if (day1 <= transactions.at(i)->getDate() && transactions.at(i)->getDate() <= day2)
-			cout << *transactions.at(i);
+			cout << TAB << *transactions.at(i);
 	}
 }
 
@@ -222,7 +222,7 @@ void Market::printTransactions(Date d) const {
 
 	for (size_t i = 0; i < transactions.size(); i++) {
 		if (transactions.at(i)->getDate() == d)
-			cout << *transactions.at(i);
+			cout << TAB << *transactions.at(i);
 	}
 }
 
@@ -371,11 +371,11 @@ void Market::requestInvestement(double requestValue) {
 void Market::listInactiveInvestors() {
 	
 	if (inactive_investors.size() == 0) {
-		cout << TAB << "No bankrupt investors\n\n";
+		cout << endl << TAB << "No bankrupt investors\n\n";
 		return;
 	}
 
-	cout << TAB << "Bankrupted investors\n\n";
+	cout << endl << TAB << "Bankrupted investors\n\n";
 	for (auto investor : inactive_investors) {
 		cout << (*investor);
 	}
@@ -388,26 +388,25 @@ void Market::recreditInvestor(double loan, Investor* investor) {
 			inactive_investors.erase(inactiveInv);
 			inactiveInv->addBudget(loan);
 			investors.push(*inactiveInv);
-			cout << TAB << "LOAN MADE TO:\n" << *inactiveInv;
+			cout << endl << TAB << "LOAN MADE TO:\n" << *inactiveInv;
 			return;
 		}
 	}
 
-	cout << TAB << "UNEXISTENT INACTIVE INVESTOR\n";
+	cout << endl << TAB << "UNEXISTENT INACTIVE INVESTOR\n";
 }
-
 
 void Market::changeInvestorContact(tlmv_t newPhone_n, Investor* investor) {
 	
 	for (auto inactiveInv : inactive_investors) {
 		if (*inactiveInv == *investor) {
 			inactiveInv->updatePhoneN(newPhone_n);
-			cout << TAB << "Successfully updated investor contact\n";
+			cout << endl << TAB << "Successfully updated investor contact\n";
 			return;
 		}
 	}
 
-	cout << TAB << "UNEXISTENT INACTIVE INVESTOR\n";
+	cout << endl << TAB << "UNEXISTENT INACTIVE INVESTOR\n";
 }
 
 // Returns pair< vector<Transaction *>::iterator, vector<Transaction *>::iterator >
