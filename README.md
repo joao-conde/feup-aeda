@@ -1,6 +1,7 @@
 # feup-aeda
 
-Developed for AEDA @FEUP
+Developed for AEDA at FEUP
+
 Course page: https://sigarra.up.pt/feup/en/UCURR_GERAL.FICHA_UC_VIEW?pv_ocorrencia_id=399886
 
 
