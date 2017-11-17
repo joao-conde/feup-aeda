@@ -1,0 +1,223 @@
+\hypertarget{class_transaction}{}\section{Transaction Class Reference}
+\label{class_transaction}\index{Transaction@{Transaction}}
+
+
+{\ttfamily \#include $<$Transaction.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_transaction_a0c8031bed6e7a45eda7bc2ca8f40e851}{Transaction} ()=default
+\item 
+\hyperlink{class_transaction_a2bbb78694a94a630cb1e9e741dc120a7}{Transaction} (ifstream \&in)
+\item 
+\hyperlink{class_transaction_abd1826b5a0499ddac290a4f1297e7455}{Transaction} (nif\+\_\+t \hyperlink{class_transaction_a3db24320f561ae3a72887e7a34b19917}{buyer\+N\+IF}, nif\+\_\+t \hyperlink{class_transaction_a4f779b188a508987aa610e4274765059}{seller\+N\+IF}, string \hyperlink{class_transaction_ae0fd78bf4db4a8dc6d4d931f107a6213}{stock}, double \hyperlink{class_transaction_a75d644553218251b030313776ff33f51}{value}, unsigned \hyperlink{class_transaction_a32045bcdce9ba390cf1c646578e29fd3}{quantity})
+\item 
+string \hyperlink{class_transaction_af6582ddc59e9cfa99a7ef178216799be}{get\+Stock} () const
+\item 
+double \hyperlink{class_transaction_a95976b2e60b66d766edf4db534324db4}{get\+Value} () const
+\item 
+unsigned \hyperlink{class_transaction_ab3bfaa0469e1f45c5bd5dc164ac3c850}{get\+Quantity} () const
+\item 
+nif\+\_\+t \hyperlink{class_transaction_a3c3a57a3240bece392c56ff41bc3c21b}{get\+Seller\+N\+IF} () const
+\item 
+nif\+\_\+t \hyperlink{class_transaction_afa91c88bb936d8bd8480ac36b599649b}{get\+Buyer\+N\+IF} () const
+\item 
+\hyperlink{class_date}{Date} \hyperlink{class_transaction_af2ef4a1ef82f9ff5d34dae7234211589}{get\+Date} () const
+\item 
+void \hyperlink{class_transaction_a3c0c3c4a64c5b3d20c420708357a86be}{save\+Changes} (ofstream \&out) const
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+nif\+\_\+t \hyperlink{class_transaction_a4f779b188a508987aa610e4274765059}{seller\+N\+IF}
+\item 
+nif\+\_\+t \hyperlink{class_transaction_a3db24320f561ae3a72887e7a34b19917}{buyer\+N\+IF}
+\item 
+string \hyperlink{class_transaction_ae0fd78bf4db4a8dc6d4d931f107a6213}{stock}
+\item 
+double \hyperlink{class_transaction_a75d644553218251b030313776ff33f51}{value}
+\item 
+unsigned \hyperlink{class_transaction_a32045bcdce9ba390cf1c646578e29fd3}{quantity}
+\item 
+\hyperlink{class_date}{Date} \hyperlink{class_transaction_a94ff0c865db09881fa3becfdad25ce5d}{time\+\_\+stamp}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{class_transaction_a8d6d6be74010b57302f4567e06cdbed3}{operator$<$$<$} (ostream \&, const \hyperlink{class_transaction}{Transaction} \&)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class used to represent a transaction. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_transaction_a0c8031bed6e7a45eda7bc2ca8f40e851}\label{class_transaction_a0c8031bed6e7a45eda7bc2ca8f40e851}} 
+\index{Transaction@{Transaction}!Transaction@{Transaction}}
+\index{Transaction@{Transaction}!Transaction@{Transaction}}
+\subsubsection{\texorpdfstring{Transaction()}{Transaction()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Transaction\+::\+Transaction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+A default constructor. \mbox{\Hypertarget{class_transaction_a2bbb78694a94a630cb1e9e741dc120a7}\label{class_transaction_a2bbb78694a94a630cb1e9e741dc120a7}} 
+\index{Transaction@{Transaction}!Transaction@{Transaction}}
+\index{Transaction@{Transaction}!Transaction@{Transaction}}
+\subsubsection{\texorpdfstring{Transaction()}{Transaction()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Transaction\+::\+Transaction (\begin{DoxyParamCaption}\item[{ifstream \&}]{in }\end{DoxyParamCaption})}
+
+A constructor. The construtor creates a transaction object, reading the data from the input stream passed as argument. 
+\begin{DoxyParams}{Parameters}
+{\em in} & The input stream to read from in order to build the transaction object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_transaction_abd1826b5a0499ddac290a4f1297e7455}\label{class_transaction_abd1826b5a0499ddac290a4f1297e7455}} 
+\index{Transaction@{Transaction}!Transaction@{Transaction}}
+\index{Transaction@{Transaction}!Transaction@{Transaction}}
+\subsubsection{\texorpdfstring{Transaction()}{Transaction()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Transaction\+::\+Transaction (\begin{DoxyParamCaption}\item[{nif\+\_\+t}]{buyer\+N\+IF,  }\item[{nif\+\_\+t}]{seller\+N\+IF,  }\item[{string}]{stock,  }\item[{double}]{value,  }\item[{unsigned}]{quantity }\end{DoxyParamCaption})}
+
+A constructor. The construtor creates a transaction object using the data passed as arguments. 
+\begin{DoxyParams}{Parameters}
+{\em buyer\+N\+IF} & The N\+IF from the buyer. \\
+\hline
+{\em seller\+N\+IF} & The N\+IF from the seller. \\
+\hline
+{\em stock} & The stock name. \\
+\hline
+{\em value} & The value of the stock. \\
+\hline
+{\em quantity} & The amount of stock. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_transaction_afa91c88bb936d8bd8480ac36b599649b}\label{class_transaction_afa91c88bb936d8bd8480ac36b599649b}} 
+\index{Transaction@{Transaction}!get\+Buyer\+N\+IF@{get\+Buyer\+N\+IF}}
+\index{get\+Buyer\+N\+IF@{get\+Buyer\+N\+IF}!Transaction@{Transaction}}
+\subsubsection{\texorpdfstring{get\+Buyer\+N\+I\+F()}{getBuyerNIF()}}
+{\footnotesize\ttfamily nif\+\_\+t Transaction\+::get\+Buyer\+N\+IF (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+A const member function with no arguments to get the transaction\textquotesingle{}s buyer N\+IF. \begin{DoxyReturn}{Returns}
+A nif\+\_\+t , the buyer N\+IF. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_transaction_af2ef4a1ef82f9ff5d34dae7234211589}\label{class_transaction_af2ef4a1ef82f9ff5d34dae7234211589}} 
+\index{Transaction@{Transaction}!get\+Date@{get\+Date}}
+\index{get\+Date@{get\+Date}!Transaction@{Transaction}}
+\subsubsection{\texorpdfstring{get\+Date()}{getDate()}}
+{\footnotesize\ttfamily \hyperlink{class_date}{Date} Transaction\+::get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+A const member function with no arguments to get the transaction\textquotesingle{}s date. \begin{DoxyReturn}{Returns}
+A \hyperlink{class_date}{Date} object , the date of the transaction. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_transaction_ab3bfaa0469e1f45c5bd5dc164ac3c850}\label{class_transaction_ab3bfaa0469e1f45c5bd5dc164ac3c850}} 
+\index{Transaction@{Transaction}!get\+Quantity@{get\+Quantity}}
+\index{get\+Quantity@{get\+Quantity}!Transaction@{Transaction}}
+\subsubsection{\texorpdfstring{get\+Quantity()}{getQuantity()}}
+{\footnotesize\ttfamily unsigned Transaction\+::get\+Quantity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+A const member function with no arguments to get the transaction\textquotesingle{}s quantity of stock. \begin{DoxyReturn}{Returns}
+An unsigned, the quantity. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_transaction_a3c3a57a3240bece392c56ff41bc3c21b}\label{class_transaction_a3c3a57a3240bece392c56ff41bc3c21b}} 
+\index{Transaction@{Transaction}!get\+Seller\+N\+IF@{get\+Seller\+N\+IF}}
+\index{get\+Seller\+N\+IF@{get\+Seller\+N\+IF}!Transaction@{Transaction}}
+\subsubsection{\texorpdfstring{get\+Seller\+N\+I\+F()}{getSellerNIF()}}
+{\footnotesize\ttfamily nif\+\_\+t Transaction\+::get\+Seller\+N\+IF (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+A const member function with no arguments to get the transaction\textquotesingle{}s seller N\+IF. \begin{DoxyReturn}{Returns}
+A nif\+\_\+t , the seller N\+IF. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_transaction_af6582ddc59e9cfa99a7ef178216799be}\label{class_transaction_af6582ddc59e9cfa99a7ef178216799be}} 
+\index{Transaction@{Transaction}!get\+Stock@{get\+Stock}}
+\index{get\+Stock@{get\+Stock}!Transaction@{Transaction}}
+\subsubsection{\texorpdfstring{get\+Stock()}{getStock()}}
+{\footnotesize\ttfamily string Transaction\+::get\+Stock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+A const member function with no arguments to get the transaction\textquotesingle{}s Stock name. \begin{DoxyReturn}{Returns}
+A string, the Stock\textquotesingle{}s name. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_transaction_a95976b2e60b66d766edf4db534324db4}\label{class_transaction_a95976b2e60b66d766edf4db534324db4}} 
+\index{Transaction@{Transaction}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!Transaction@{Transaction}}
+\subsubsection{\texorpdfstring{get\+Value()}{getValue()}}
+{\footnotesize\ttfamily double Transaction\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+A const member function with no arguments to get the transaction\textquotesingle{}s Value Per Stock. \begin{DoxyReturn}{Returns}
+A double, the value per stock transactioned. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_transaction_a3c0c3c4a64c5b3d20c420708357a86be}\label{class_transaction_a3c0c3c4a64c5b3d20c420708357a86be}} 
+\index{Transaction@{Transaction}!save\+Changes@{save\+Changes}}
+\index{save\+Changes@{save\+Changes}!Transaction@{Transaction}}
+\subsubsection{\texorpdfstring{save\+Changes()}{saveChanges()}}
+{\footnotesize\ttfamily void Transaction\+::save\+Changes (\begin{DoxyParamCaption}\item[{ofstream \&}]{out }\end{DoxyParamCaption}) const}
+
+A const member function to write the transaction to a save file. 
+\begin{DoxyParams}{Parameters}
+{\em out} & The outputstream file to write to. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_transaction_a8d6d6be74010b57302f4567e06cdbed3}\label{class_transaction_a8d6d6be74010b57302f4567e06cdbed3}} 
+\index{Transaction@{Transaction}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Transaction@{Transaction}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{,  }\item[{const \hyperlink{class_transaction}{Transaction} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Overload of Operator $<$$<$ for class \hyperlink{class_transaction}{Transaction}. Prints the transaction in a human friendly way. 
+\begin{DoxyParams}{Parameters}
+{\em out} & The outstream to write to. \\
+\hline
+{\em t} & The transaction to be written. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the output stream to allow chainning 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_transaction_a3db24320f561ae3a72887e7a34b19917}\label{class_transaction_a3db24320f561ae3a72887e7a34b19917}} 
+\index{Transaction@{Transaction}!buyer\+N\+IF@{buyer\+N\+IF}}
+\index{buyer\+N\+IF@{buyer\+N\+IF}!Transaction@{Transaction}}
+\subsubsection{\texorpdfstring{buyer\+N\+IF}{buyerNIF}}
+{\footnotesize\ttfamily nif\+\_\+t Transaction\+::buyer\+N\+IF\hspace{0.3cm}{\ttfamily [private]}}
+
+nif\+\_\+t buyer\+N\+IF. The N\+IF from the client that bought the stock. \mbox{\Hypertarget{class_transaction_a32045bcdce9ba390cf1c646578e29fd3}\label{class_transaction_a32045bcdce9ba390cf1c646578e29fd3}} 
+\index{Transaction@{Transaction}!quantity@{quantity}}
+\index{quantity@{quantity}!Transaction@{Transaction}}
+\subsubsection{\texorpdfstring{quantity}{quantity}}
+{\footnotesize\ttfamily unsigned Transaction\+::quantity\hspace{0.3cm}{\ttfamily [private]}}
+
+unsigned quantity. The quantity of stock. \mbox{\Hypertarget{class_transaction_a4f779b188a508987aa610e4274765059}\label{class_transaction_a4f779b188a508987aa610e4274765059}} 
+\index{Transaction@{Transaction}!seller\+N\+IF@{seller\+N\+IF}}
+\index{seller\+N\+IF@{seller\+N\+IF}!Transaction@{Transaction}}
+\subsubsection{\texorpdfstring{seller\+N\+IF}{sellerNIF}}
+{\footnotesize\ttfamily nif\+\_\+t Transaction\+::seller\+N\+IF\hspace{0.3cm}{\ttfamily [private]}}
+
+nif\+\_\+t seller\+N\+IF. The N\+IF from the client that sold the stock. \mbox{\Hypertarget{class_transaction_ae0fd78bf4db4a8dc6d4d931f107a6213}\label{class_transaction_ae0fd78bf4db4a8dc6d4d931f107a6213}} 
+\index{Transaction@{Transaction}!stock@{stock}}
+\index{stock@{stock}!Transaction@{Transaction}}
+\subsubsection{\texorpdfstring{stock}{stock}}
+{\footnotesize\ttfamily string Transaction\+::stock\hspace{0.3cm}{\ttfamily [private]}}
+
+string stock. The name of the stock product. \mbox{\Hypertarget{class_transaction_a94ff0c865db09881fa3becfdad25ce5d}\label{class_transaction_a94ff0c865db09881fa3becfdad25ce5d}} 
+\index{Transaction@{Transaction}!time\+\_\+stamp@{time\+\_\+stamp}}
+\index{time\+\_\+stamp@{time\+\_\+stamp}!Transaction@{Transaction}}
+\subsubsection{\texorpdfstring{time\+\_\+stamp}{time\_stamp}}
+{\footnotesize\ttfamily \hyperlink{class_date}{Date} Transaction\+::time\+\_\+stamp\hspace{0.3cm}{\ttfamily [private]}}
+
+\hyperlink{class_date}{Date} time\+\_\+stamp. The time where the transaction occured. \mbox{\Hypertarget{class_transaction_a75d644553218251b030313776ff33f51}\label{class_transaction_a75d644553218251b030313776ff33f51}} 
+\index{Transaction@{Transaction}!value@{value}}
+\index{value@{value}!Transaction@{Transaction}}
+\subsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily double Transaction\+::value\hspace{0.3cm}{\ttfamily [private]}}
+
+double value. The value of the stock. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Projetos\+C++/\+A\+E\+D\+Av2/\+Stock\+Market/Transaction.\+h\item 
+D\+:/\+Projetos\+C++/\+A\+E\+D\+Av2/\+Stock\+Market/Transaction.\+cpp\end{DoxyCompactItemize}

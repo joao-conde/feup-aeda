@@ -1,0 +1,54 @@
+\hypertarget{structinvestor_ptr_hash}{}\section{investor\+Ptr\+Hash Struct Reference}
+\label{structinvestor_ptr_hash}\index{investor\+Ptr\+Hash@{investor\+Ptr\+Hash}}
+
+
+{\ttfamily \#include $<$Investor.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structinvestor_ptr_hash_af2bea253d87fd0752e2456f0c92fcd8e}{operator()} (const \hyperlink{class_investor}{Investor} $\ast$i) const
+\item 
+bool \hyperlink{structinvestor_ptr_hash_a121a824a56efb5597de907cf916f8b52}{operator()} (const \hyperlink{class_investor}{Investor} $\ast$i1, const \hyperlink{class_investor}{Investor} $\ast$i2) const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A structure to encapsulate the Hash and Comparison functions of \hyperlink{class_investor}{Investor} Pointers. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{structinvestor_ptr_hash_af2bea253d87fd0752e2456f0c92fcd8e}\label{structinvestor_ptr_hash_af2bea253d87fd0752e2456f0c92fcd8e}} 
+\index{investor\+Ptr\+Hash@{investor\+Ptr\+Hash}!operator()@{operator()}}
+\index{operator()@{operator()}!investor\+Ptr\+Hash@{investor\+Ptr\+Hash}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int investor\+Ptr\+Hash\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{class_investor}{Investor} $\ast$}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Hash Function for Investor$\ast$ 
+\begin{DoxyParams}{Parameters}
+{\em i} & Pointer to an \hyperlink{class_investor}{Investor} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+hash value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structinvestor_ptr_hash_a121a824a56efb5597de907cf916f8b52}\label{structinvestor_ptr_hash_a121a824a56efb5597de907cf916f8b52}} 
+\index{investor\+Ptr\+Hash@{investor\+Ptr\+Hash}!operator()@{operator()}}
+\index{operator()@{operator()}!investor\+Ptr\+Hash@{investor\+Ptr\+Hash}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool investor\+Ptr\+Hash\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{class_investor}{Investor} $\ast$}]{i1,  }\item[{const \hyperlink{class_investor}{Investor} $\ast$}]{i2 }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Comparison Function for Investor$\ast$ 
+\begin{DoxyParams}{Parameters}
+{\em i1} & Pointer to an \hyperlink{class_investor}{Investor} object. \\
+\hline
+{\em i2} & Pointer to an \hyperlink{class_investor}{Investor} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if Investors pointed by i1 and i2 are the same, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Projetos\+C++/\+A\+E\+D\+Av2/\+Stock\+Market/Investor.\+h\end{DoxyCompactItemize}

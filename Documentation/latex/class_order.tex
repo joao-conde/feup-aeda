@@ -1,0 +1,210 @@
+\hypertarget{class_order}{}\section{Order Class Reference}
+\label{class_order}\index{Order@{Order}}
+
+
+{\ttfamily \#include $<$Order.\+h$>$}
+
+Inheritance diagram for Order\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_order}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_order_1_1_invalid_value}{Invalid\+Value}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_order_afd9bc0f1cf5ad376154ffde0e2727fbb}{Order} (ifstream \&in)
+\item 
+\hyperlink{class_order_afdda61d21957bffaf29e666ee6741bdc}{Order} (string s, double value, unsigned quant)
+\item 
+virtual \hyperlink{class_order_aa29be853510781d514722f857ab1698a}{$\sim$\+Order} ()=default
+\item 
+\hyperlink{class_date}{Date} \hyperlink{class_order_a8ffb9095f78f8a3b1942e7995516007c}{get\+Date\+Placed} () const
+\item 
+string \hyperlink{class_order_aa008956fd77ac3d254117443b7d916fa}{get\+Stock} () const
+\item 
+double \hyperlink{class_order_a7e93f84ff8b0468aef7e7ee23ea1979c}{get\+Value} () const
+\item 
+unsigned \hyperlink{class_order_a1d34436da1dbc3ffad588505eca5ff49}{get\+Quantity} () const
+\item 
+void \hyperlink{class_order_a718aea4e96286f2333222d6414eaa317}{print\+Info} () const
+\item 
+virtual nif\+\_\+t \hyperlink{class_order_a9831f386726f74ee20eea13a46282e13}{get\+Client\+N\+IF} () const =0
+\item 
+virtual \hyperlink{class_transaction}{Transaction} $\ast$ \hyperlink{class_order_a85d5de18c8664085619e3a5c74d47a25}{operator()} (\hyperlink{class_order}{Order} $\ast$o)=0
+\item 
+virtual void \hyperlink{class_order_a83989bde0a9b40cbeb0e87c965f6096e}{save\+Changes} (ofstream \&out) const
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{class_order_aafb6dfab2a1c253eefd78840b27dcd2e}{stock}
+\item 
+double \hyperlink{class_order_ab5d512fb35483413b9fe200d58324c2e}{value\+Per\+Stock}
+\item 
+unsigned \hyperlink{class_order_ab02e2baeb8c57217a20c9124df3ba11d}{quantity}
+\item 
+\hyperlink{class_date}{Date} \hyperlink{class_order_a23f58bb3f0162aac8c91a8a14136990c}{date\+Placed}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstract Base class used to represent an order. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_order_afd9bc0f1cf5ad376154ffde0e2727fbb}\label{class_order_afd9bc0f1cf5ad376154ffde0e2727fbb}} 
+\index{Order@{Order}!Order@{Order}}
+\index{Order@{Order}!Order@{Order}}
+\subsubsection{\texorpdfstring{Order()}{Order()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Order\+::\+Order (\begin{DoxyParamCaption}\item[{ifstream \&}]{in }\end{DoxyParamCaption})}
+
+A constructor. The construtor creates an order object, reading the data from the input stream passed as argument. 
+\begin{DoxyParams}{Parameters}
+{\em in} & The input stream to read from in order to build the order object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_order_afdda61d21957bffaf29e666ee6741bdc}\label{class_order_afdda61d21957bffaf29e666ee6741bdc}} 
+\index{Order@{Order}!Order@{Order}}
+\index{Order@{Order}!Order@{Order}}
+\subsubsection{\texorpdfstring{Order()}{Order()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Order\+::\+Order (\begin{DoxyParamCaption}\item[{string}]{s,  }\item[{double}]{value,  }\item[{unsigned}]{quant }\end{DoxyParamCaption})}
+
+A constructor. The construtor creates an order object using the data passed as arguments. 
+\begin{DoxyParams}{Parameters}
+{\em s} & A string with the stock name. \\
+\hline
+{\em value} & A double with the value per stock. \\
+\hline
+{\em quant} & An unsigned with the stock quantity. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_order_aa29be853510781d514722f857ab1698a}\label{class_order_aa29be853510781d514722f857ab1698a}} 
+\index{Order@{Order}!````~Order@{$\sim$\+Order}}
+\index{````~Order@{$\sim$\+Order}!Order@{Order}}
+\subsubsection{\texorpdfstring{$\sim$\+Order()}{~Order()}}
+{\footnotesize\ttfamily virtual Order\+::$\sim$\+Order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+A virtual destructor. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_order_a9831f386726f74ee20eea13a46282e13}\label{class_order_a9831f386726f74ee20eea13a46282e13}} 
+\index{Order@{Order}!get\+Client\+N\+IF@{get\+Client\+N\+IF}}
+\index{get\+Client\+N\+IF@{get\+Client\+N\+IF}!Order@{Order}}
+\subsubsection{\texorpdfstring{get\+Client\+N\+I\+F()}{getClientNIF()}}
+{\footnotesize\ttfamily virtual nif\+\_\+t Order\+::get\+Client\+N\+IF (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+A const abstract member function that returns the N\+IF of the client associated with the \hyperlink{class_order}{Order}. \begin{DoxyReturn}{Returns}
+The N\+IF of the Buyer/\+Seller associated with the \hyperlink{class_order}{Order}. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_sell_order_a2f34e30d8bc5c891c40d8b80342cc34d}{Sell\+Order}, and \hyperlink{class_buy_order_ab79597b9bf0656216b2283bfa3a650e0}{Buy\+Order}.
+
+\mbox{\Hypertarget{class_order_a8ffb9095f78f8a3b1942e7995516007c}\label{class_order_a8ffb9095f78f8a3b1942e7995516007c}} 
+\index{Order@{Order}!get\+Date\+Placed@{get\+Date\+Placed}}
+\index{get\+Date\+Placed@{get\+Date\+Placed}!Order@{Order}}
+\subsubsection{\texorpdfstring{get\+Date\+Placed()}{getDatePlaced()}}
+{\footnotesize\ttfamily \hyperlink{class_date}{Date} Order\+::get\+Date\+Placed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+A const member function with no arguments to get the orders\textquotesingle{}s place date. \begin{DoxyReturn}{Returns}
+A \hyperlink{class_date}{Date} object , the date when the order was placed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_a1d34436da1dbc3ffad588505eca5ff49}\label{class_order_a1d34436da1dbc3ffad588505eca5ff49}} 
+\index{Order@{Order}!get\+Quantity@{get\+Quantity}}
+\index{get\+Quantity@{get\+Quantity}!Order@{Order}}
+\subsubsection{\texorpdfstring{get\+Quantity()}{getQuantity()}}
+{\footnotesize\ttfamily unsigned Order\+::get\+Quantity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+A const member function with no arguments to get the order stock quantity. \begin{DoxyReturn}{Returns}
+An unsigned, the quantity of stock. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_aa008956fd77ac3d254117443b7d916fa}\label{class_order_aa008956fd77ac3d254117443b7d916fa}} 
+\index{Order@{Order}!get\+Stock@{get\+Stock}}
+\index{get\+Stock@{get\+Stock}!Order@{Order}}
+\subsubsection{\texorpdfstring{get\+Stock()}{getStock()}}
+{\footnotesize\ttfamily string Order\+::get\+Stock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+A const member function with no arguments to get the orders\textquotesingle{}s stock name. \begin{DoxyReturn}{Returns}
+A string that is the name of the stock. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_a7e93f84ff8b0468aef7e7ee23ea1979c}\label{class_order_a7e93f84ff8b0468aef7e7ee23ea1979c}} 
+\index{Order@{Order}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!Order@{Order}}
+\subsubsection{\texorpdfstring{get\+Value()}{getValue()}}
+{\footnotesize\ttfamily double Order\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+A const member function with no arguments to get the value per stock. \begin{DoxyReturn}{Returns}
+A double, the value per stock. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_order_a85d5de18c8664085619e3a5c74d47a25}\label{class_order_a85d5de18c8664085619e3a5c74d47a25}} 
+\index{Order@{Order}!operator()@{operator()}}
+\index{operator()@{operator()}!Order@{Order}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily virtual \hyperlink{class_transaction}{Transaction}$\ast$ Order\+::operator() (\begin{DoxyParamCaption}\item[{\hyperlink{class_order}{Order} $\ast$}]{o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Abstract overload of function operator. Cheks whether this instance of an \hyperlink{class_order}{Order} Object can be fulfilled by the provided \hyperlink{class_order}{Order}. 
+\begin{DoxyParams}{Parameters}
+{\em an} & \hyperlink{class_order}{Order} pointer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the transaction generated if successful, N\+U\+LL otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_sell_order_ae4e19807431bcd87c7126d0c644ff209}{Sell\+Order}, and \hyperlink{class_buy_order_a45641eed13ea191fff675745a618b9f5}{Buy\+Order}.
+
+\mbox{\Hypertarget{class_order_a718aea4e96286f2333222d6414eaa317}\label{class_order_a718aea4e96286f2333222d6414eaa317}} 
+\index{Order@{Order}!print\+Info@{print\+Info}}
+\index{print\+Info@{print\+Info}!Order@{Order}}
+\subsubsection{\texorpdfstring{print\+Info()}{printInfo()}}
+{\footnotesize\ttfamily void Order\+::print\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+A const member function that prints the order information. \mbox{\Hypertarget{class_order_a83989bde0a9b40cbeb0e87c965f6096e}\label{class_order_a83989bde0a9b40cbeb0e87c965f6096e}} 
+\index{Order@{Order}!save\+Changes@{save\+Changes}}
+\index{save\+Changes@{save\+Changes}!Order@{Order}}
+\subsubsection{\texorpdfstring{save\+Changes()}{saveChanges()}}
+{\footnotesize\ttfamily void Order\+::save\+Changes (\begin{DoxyParamCaption}\item[{ofstream \&}]{out }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+A virtual function to save changes in the derived classes. 
+
+Reimplemented in \hyperlink{class_sell_order_a81c6ea39652c38a718803c036767787f}{Sell\+Order}, and \hyperlink{class_buy_order_aa4f087d0dbc1f6e8937c0b3679fc2f7b}{Buy\+Order}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_order_a23f58bb3f0162aac8c91a8a14136990c}\label{class_order_a23f58bb3f0162aac8c91a8a14136990c}} 
+\index{Order@{Order}!date\+Placed@{date\+Placed}}
+\index{date\+Placed@{date\+Placed}!Order@{Order}}
+\subsubsection{\texorpdfstring{date\+Placed}{datePlaced}}
+{\footnotesize\ttfamily \hyperlink{class_date}{Date} Order\+::date\+Placed\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hyperlink{class_date}{Date} date\+Placed. The date when the order was placed. \mbox{\Hypertarget{class_order_ab02e2baeb8c57217a20c9124df3ba11d}\label{class_order_ab02e2baeb8c57217a20c9124df3ba11d}} 
+\index{Order@{Order}!quantity@{quantity}}
+\index{quantity@{quantity}!Order@{Order}}
+\subsubsection{\texorpdfstring{quantity}{quantity}}
+{\footnotesize\ttfamily unsigned Order\+::quantity\hspace{0.3cm}{\ttfamily [protected]}}
+
+unsigned quantity. An unsigned with the stock quantity. \mbox{\Hypertarget{class_order_aafb6dfab2a1c253eefd78840b27dcd2e}\label{class_order_aafb6dfab2a1c253eefd78840b27dcd2e}} 
+\index{Order@{Order}!stock@{stock}}
+\index{stock@{stock}!Order@{Order}}
+\subsubsection{\texorpdfstring{stock}{stock}}
+{\footnotesize\ttfamily string Order\+::stock\hspace{0.3cm}{\ttfamily [protected]}}
+
+string stock. A string with stock name. \mbox{\Hypertarget{class_order_ab5d512fb35483413b9fe200d58324c2e}\label{class_order_ab5d512fb35483413b9fe200d58324c2e}} 
+\index{Order@{Order}!value\+Per\+Stock@{value\+Per\+Stock}}
+\index{value\+Per\+Stock@{value\+Per\+Stock}!Order@{Order}}
+\subsubsection{\texorpdfstring{value\+Per\+Stock}{valuePerStock}}
+{\footnotesize\ttfamily double Order\+::value\+Per\+Stock\hspace{0.3cm}{\ttfamily [protected]}}
+
+value\+Per\+Stock. A double with the stock value. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Projetos\+C++/\+A\+E\+D\+Av2/\+Stock\+Market/Order.\+h\item 
+D\+:/\+Projetos\+C++/\+A\+E\+D\+Av2/\+Stock\+Market/Order.\+cpp\end{DoxyCompactItemize}

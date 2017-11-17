@@ -1,0 +1,136 @@
+\hypertarget{class_sell_order}{}\section{Sell\+Order Class Reference}
+\label{class_sell_order}\index{Sell\+Order@{Sell\+Order}}
+
+
+{\ttfamily \#include $<$Order.\+h$>$}
+
+Inheritance diagram for Sell\+Order\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sell_order}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_sell_order_ac89fdde112f2f9aac52633a2d9507bea}{Sell\+Order} (ifstream \&in)
+\begin{DoxyCompactList}\small\item\em /// \end{DoxyCompactList}\item 
+\hyperlink{class_sell_order_a19145616a9cceec182bdcb00816b89c5}{Sell\+Order} (string \hyperlink{class_order_aafb6dfab2a1c253eefd78840b27dcd2e}{stock}, double val, unsigned \hyperlink{class_order_ab02e2baeb8c57217a20c9124df3ba11d}{quantity}, nif\+\_\+t \hyperlink{class_sell_order_a986130b91a0dc2f234dffc10b24c3183}{seller\+N\+IF})
+\item 
+nif\+\_\+t \hyperlink{class_sell_order_a2f34e30d8bc5c891c40d8b80342cc34d}{get\+Client\+N\+IF} () const
+\item 
+\hyperlink{class_transaction}{Transaction} $\ast$ \hyperlink{class_sell_order_ae4e19807431bcd87c7126d0c644ff209}{operator()} (\hyperlink{class_order}{Order} $\ast$o)
+\item 
+void \hyperlink{class_sell_order_a81c6ea39652c38a718803c036767787f}{save\+Changes} (ofstream \&out) const
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sell_order_a9c9a7419b6974313ef6b5e4e16be6b8a}\label{class_sell_order_a9c9a7419b6974313ef6b5e4e16be6b8a}} 
+friend {\bfseries Buy\+Order}
+\item 
+nif\+\_\+t \hyperlink{class_sell_order_a986130b91a0dc2f234dffc10b24c3183}{seller\+N\+IF}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class used to represent a sell order. Derives from \hyperlink{class_order}{Order}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_sell_order_ac89fdde112f2f9aac52633a2d9507bea}\label{class_sell_order_ac89fdde112f2f9aac52633a2d9507bea}} 
+\index{Sell\+Order@{Sell\+Order}!Sell\+Order@{Sell\+Order}}
+\index{Sell\+Order@{Sell\+Order}!Sell\+Order@{Sell\+Order}}
+\subsubsection{\texorpdfstring{Sell\+Order()}{SellOrder()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Sell\+Order\+::\+Sell\+Order (\begin{DoxyParamCaption}\item[{ifstream \&}]{in }\end{DoxyParamCaption})}
+
+
+
+/// 
+
+A constructor. The construtor creates a \hyperlink{class_sell_order}{Sell\+Order} object, reading the data from the input stream passed as argument. 
+\begin{DoxyParams}{Parameters}
+{\em in} & The input stream to read from in order to build the \hyperlink{class_sell_order}{Sell\+Order} object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_sell_order_a19145616a9cceec182bdcb00816b89c5}\label{class_sell_order_a19145616a9cceec182bdcb00816b89c5}} 
+\index{Sell\+Order@{Sell\+Order}!Sell\+Order@{Sell\+Order}}
+\index{Sell\+Order@{Sell\+Order}!Sell\+Order@{Sell\+Order}}
+\subsubsection{\texorpdfstring{Sell\+Order()}{SellOrder()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Sell\+Order\+::\+Sell\+Order (\begin{DoxyParamCaption}\item[{string}]{stock,  }\item[{double}]{val,  }\item[{unsigned}]{quantity,  }\item[{nif\+\_\+t}]{seller\+N\+IF }\end{DoxyParamCaption})}
+
+A constructor. The construtor creates a \hyperlink{class_sell_order}{Sell\+Order} object using the data passed as arguments. 
+\begin{DoxyParams}{Parameters}
+{\em stock} & A string with the stock name. \\
+\hline
+{\em val} & A double with the value per stock. \\
+\hline
+{\em quantity} & An unsigned with the stock quantity. \\
+\hline
+{\em seller\+N\+IF} & The seller\textquotesingle{}s N\+IF. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_sell_order_a2f34e30d8bc5c891c40d8b80342cc34d}\label{class_sell_order_a2f34e30d8bc5c891c40d8b80342cc34d}} 
+\index{Sell\+Order@{Sell\+Order}!get\+Client\+N\+IF@{get\+Client\+N\+IF}}
+\index{get\+Client\+N\+IF@{get\+Client\+N\+IF}!Sell\+Order@{Sell\+Order}}
+\subsubsection{\texorpdfstring{get\+Client\+N\+I\+F()}{getClientNIF()}}
+{\footnotesize\ttfamily nif\+\_\+t Sell\+Order\+::get\+Client\+N\+IF (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+A const member function that returns the N\+IF of the client associated with this \hyperlink{class_sell_order}{Sell\+Order}. \begin{DoxyReturn}{Returns}
+The N\+IF of the Seller associated with this \hyperlink{class_order}{Order}. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_order_a9831f386726f74ee20eea13a46282e13}{Order}.
+
+\mbox{\Hypertarget{class_sell_order_ae4e19807431bcd87c7126d0c644ff209}\label{class_sell_order_ae4e19807431bcd87c7126d0c644ff209}} 
+\index{Sell\+Order@{Sell\+Order}!operator()@{operator()}}
+\index{operator()@{operator()}!Sell\+Order@{Sell\+Order}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily \hyperlink{class_transaction}{Transaction} $\ast$ Sell\+Order\+::operator() (\begin{DoxyParamCaption}\item[{\hyperlink{class_order}{Order} $\ast$}]{o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Overload of operator() for class \hyperlink{class_order}{Order}. 
+\begin{DoxyParams}{Parameters}
+{\em o} & Pointer of an object \hyperlink{class_order}{Order}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A transaction type object. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_order_a85d5de18c8664085619e3a5c74d47a25}{Order}.
+
+\mbox{\Hypertarget{class_sell_order_a81c6ea39652c38a718803c036767787f}\label{class_sell_order_a81c6ea39652c38a718803c036767787f}} 
+\index{Sell\+Order@{Sell\+Order}!save\+Changes@{save\+Changes}}
+\index{save\+Changes@{save\+Changes}!Sell\+Order@{Sell\+Order}}
+\subsubsection{\texorpdfstring{save\+Changes()}{saveChanges()}}
+{\footnotesize\ttfamily void Sell\+Order\+::save\+Changes (\begin{DoxyParamCaption}\item[{ofstream \&}]{out }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+A const memeber function to save changes in an output stream. 
+\begin{DoxyParams}{Parameters}
+{\em out} & The outstream file to write to. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_order_a83989bde0a9b40cbeb0e87c965f6096e}{Order}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_sell_order_a986130b91a0dc2f234dffc10b24c3183}\label{class_sell_order_a986130b91a0dc2f234dffc10b24c3183}} 
+\index{Sell\+Order@{Sell\+Order}!seller\+N\+IF@{seller\+N\+IF}}
+\index{seller\+N\+IF@{seller\+N\+IF}!Sell\+Order@{Sell\+Order}}
+\subsubsection{\texorpdfstring{seller\+N\+IF}{sellerNIF}}
+{\footnotesize\ttfamily nif\+\_\+t Sell\+Order\+::seller\+N\+IF\hspace{0.3cm}{\ttfamily [private]}}
+
+nif\+\_\+t seller\+N\+IF. The N\+IF of the seller associated with this \hyperlink{class_order}{Order}. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Projetos\+C++/\+A\+E\+D\+Av2/\+Stock\+Market/Order.\+h\item 
+D\+:/\+Projetos\+C++/\+A\+E\+D\+Av2/\+Stock\+Market/Order.\+cpp\end{DoxyCompactItemize}
