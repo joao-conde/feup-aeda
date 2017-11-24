@@ -10,6 +10,6 @@ int main()
 	Market::instance();
 
 	initialMenu();
-
+	 
 	return EXIT_SUCCESS;
 }
