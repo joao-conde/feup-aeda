@@ -1,1 +1,1 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppClean.targets(76,5): warning : The process cannot access the file 'd:\projetosc++\aedav2\stockmarket\debug\vc140.pdb' because it is being used by another process.
+﻿  StockMarket.vcxproj -> D:\ProjetosC++\AEDAv2\StockMarket\Debug\StockMarket.exe

@@ -1,5 +1,5 @@
 #include <sstream>
-#include <time.h>
+#include <ctime>
 #include "Date.h"
 
 // Seconds in a given month. Non-leap year

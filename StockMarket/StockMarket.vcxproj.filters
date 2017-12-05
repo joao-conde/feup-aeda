@@ -79,19 +79,19 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="c.txt">
+    <Text Include="investors.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="o.txt">
+    <Text Include="orders.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="t.txt">
+    <Text Include="transactions.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="i.txt">
+    <Text Include="clients.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="b.txt">
+    <Text Include="company.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

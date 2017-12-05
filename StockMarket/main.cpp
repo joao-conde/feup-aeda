@@ -1,5 +1,6 @@
 #include <iostream>
-#include <stddef.h>
+#include <cstddef>
+#include <cstdlib>
 #include "Market.h"
 #include "menus.h"
 
