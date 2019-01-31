@@ -1,9 +1,9 @@
 # Stock Market 
 
-This project incorporates the 1st and 2nd project developed for AEDA @ FEUP (Algorithms and Data structures)
+This project incorporates the 1st and 2nd project developed for AEDA @ FEUP (Algorithms and Data structures).
 Project developed with VisualStudio 2017. 
 
-Uses *Windows specific functions* for example to clear screen or change output color.
+Uses **Windows specific functions** for example to clear screen or change output color.
 
 Stock Market simulates exactly what it says, a stock market.
 Multiple clients and investors interact and perform transactions in the stock market, to adquire the most stocks for the least price.
